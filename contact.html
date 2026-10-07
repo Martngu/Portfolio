@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ================================================================
+       META & SEO — Contact Page
+       ================================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Get in touch with Martin Nguyen — Game Designer & UI/UX Specialist. Send a message or find me on social media." />
+  <meta name="keywords"
+        content="Martin Nguyen, contact, hire, game designer, UI/UX, freelance" />
+  <meta name="author" content="Martin Nguyen" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Contact — Martin Nguyen" />
+  <meta property="og:description" content="Send me a message or connect on social media." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url" content="https://mnportfolio.maevede.cc/contact.html" />
+  <link rel="canonical" href="https://mnportfolio.maevede.cc/contact.html" />
+
+  <title>Contact - Martin Nguyen</title>
+
+  <!-- Google Fonts: Inter (body) + Outfit, Plus Jakarta Sans & Space Grotesk (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/effects.css" />
+
+  <!-- ================================================================
+       CONTACT PAGE — Scoped Styles
+       ================================================================ -->
+  <style>
+    /* ---- Contact layout: form left, info right ---- */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+      padding-block: var(--space-xl) var(--space-2xl);
+    }
+
+    /* ---- Form Styles ---- */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .form-label .required {
+      color: var(--color-accent);
+      margin-left: 2px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #444;
+    }
+
+    /* Focus ring */
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-dim);
+      background: #0d0d0d;
+    }
+
+    .form-textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    /* ---- Validation states ---- */
+    .field--error {
+      border-color: #ff4444 !important;
+      box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.15) !important;
+    }
+
+    .field--valid {
+      border-color: var(--color-accent) !important;
+    }
+
+    .form-error {
+      font-size: 0.75rem;
+      color: #ff4444;
+      min-height: 1.2em;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .form-error.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Submit button ---- */
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+      padding: 14px 32px;
+      background: var(--color-accent);
+      color: #080808;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-accent);
+      cursor: pointer;
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: transparent;
+      color: var(--color-accent);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-submit svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ---- Success message (shown after submit) ---- */
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+      background: var(--color-card);
+      border: 1px solid rgba(127, 255, 0, 0.3);
+      border-radius: var(--radius-lg);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .form-success.visible {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+      /* Small delay so the CSS display + animation plays */
+      animation: fadeSlideIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-success__icon {
+      width: 64px;
+      height: 64px;
+      color: var(--color-accent);
+    }
+
+    .form-success__heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .form-success__text {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 40ch;
+    }
+
+    /* ---- Contact info column (right side) ---- */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding-top: var(--space-sm);
+    }
+
+    .contact-info__block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-info__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .contact-info__value {
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    .contact-info__value a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.2);
+      text-underline-offset: 3px;
+      transition:
+        color var(--transition-fast),
+        text-decoration-color var(--transition-fast);
+    }
+
+    .contact-info__value a:hover {
+      color: var(--color-accent);
+      text-decoration-color: var(--color-accent);
+    }
+
+    .contact-info__note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      border-left: 2px solid var(--color-accent);
+      padding-left: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    /* Social links row on contact page */
+    .contact-socials {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+
+    .contact-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .contact-socials a:hover {
+      color: var(--color-accent);
+      border-color: rgba(127, 255, 0, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px rgba(127, 255, 0, 0.2);
+    }
+
+    .contact-socials a svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .contact-info {
+        order: -1;
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+       SOCIAL SIDEBAR
+       ================================================================ -->
+  <aside class="social-sidebar" aria-label="Social media links">
+    <ul>
+      <li>
+        <a class="social-sidebar__link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-sidebar__link" href="https://github.com/Martngu" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+
+  <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="navbar__brand" href="index.html">Martin <span>Nguyen</span></a>
+
+      <!-- Navbar Center: Interactive Polyhedron Easter Egg Target -->
+      <div class="navbar__center-target" id="easter-egg-target" aria-label="Orb Collector Mini-Game" title="Guide neon orbs here with your mouse!">
+        <div class="target-shape-container">
+          <div class="siri-pulse-aura"></div>
+          <svg class="polyhedron-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="polyGrad1_contact" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7fff00" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#005500" stop-opacity="0.3"/>
+              </linearGradient>
+              <linearGradient id="polyGrad2_contact" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#003300" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 78,20 66,45 34,45 22,20" fill="url(#polyGrad1_contact)" stroke="#7fff00" stroke-width="1.2"/>
+            <polygon points="50,5 78,20 95,45 78,70 50,55" fill="url(#polyGrad2_contact)" stroke="#7fff00" stroke-width="1.2"/>
+            <polygon points="78,20 95,45 66,45" fill="url(#polyGrad1_contact)" stroke="#7fff00" stroke-width="1"/>
+            <polygon points="22,20 34,45 5,45" fill="url(#polyGrad2_contact)" stroke="#7fff00" stroke-width="1"/>
+            <polygon points="22,20 50,5 5,45 22,70" fill="url(#polyGrad1_contact)" stroke="#7fff00" stroke-width="1.2"/>
+            <polygon points="34,45 66,45 78,70 50,95 22,70" fill="url(#polyGrad2_contact)" stroke="#7fff00" stroke-width="1.5"/>
+            <polygon points="5,45 22,70 34,95 50,95" fill="url(#polyGrad1_contact)" stroke="#7fff00" stroke-width="1"/>
+            <polygon points="95,45 78,70 66,95 50,95" fill="url(#polyGrad2_contact)" stroke="#7fff00" stroke-width="1"/>
+            <circle cx="50" cy="5" r="2.5" fill="#7fff00"/>
+            <circle cx="78" cy="20" r="2.5" fill="#7fff00"/>
+            <circle cx="22" cy="20" r="2.5" fill="#7fff00"/>
+            <circle cx="66" cy="45" r="2.5" fill="#7fff00"/>
+            <circle cx="34" cy="45" r="2.5" fill="#7fff00"/>
+            <circle cx="50" cy="55" r="2.5" fill="#7fff00"/>
+            <circle cx="78" cy="70" r="2.5" fill="#7fff00"/>
+            <circle cx="22" cy="70" r="2.5" fill="#7fff00"/>
+            <circle cx="50" cy="95" r="2.5" fill="#7fff00"/>
+          </svg>
+        </div>
+        <span class="target-counter" id="easter-egg-counter">0/10</span>
+        <a class="secret-reward-btn hidden" id="secret-reward-btn" href="https://www.youtube.com/watch?v=w7x_lWJNnNg" target="_blank" rel="noopener noreferrer">
+          🎉 You found a little secret! ↗
+        </a>
+      </div>
+
+      <ul class="navbar__links" role="list">
+        <li><a class="navbar__link"        href="index.html">Home</a></li>
+        <li><a class="navbar__link"        href="about.html">About</a></li>
+        <li><a class="navbar__link active" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+      <button class="navbar__hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar__mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <ul role="list">
+          <li><a class="navbar__link" href="index.html">Home</a></li>
+          <li><a class="navbar__link" href="about.html">About</a></li>
+          <li><a class="navbar__link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ================================================================
+       MAIN CONTENT — CONTACT PAGE
+       ================================================================ -->
+  <main class="page-content">
+
+    <!-- Page heading -->
+    <section class="container section" style="padding-top: var(--space-md); padding-bottom: 0;">
+      <span class="text-label fade-in-up">Contact</span>
+      <h1 class="text-h1 fade-in-up" style="margin-top: var(--space-sm);">
+        Let's work together.
+      </h1>
+      <p class="text-body fade-in-up" style="margin-top: var(--space-sm);">
+        Have a project in mind, a question, or just want to say hello?
+        Fill out the form below and I'll get back to you as soon as I can.
+      </p>
+    </section>
+
+    <div class="section-divider container" role="separator" aria-hidden="true"></div>
+
+
+    <!-- ============================================================
+         CONTACT LAYOUT — Form left, Info right
+         ============================================================ -->
+    <section class="contact-layout container" aria-label="Contact form and information">
+
+      <!-- LEFT: Contact form -->
+      <div>
+
+        <!--
+          The form uses client-side validation via contact.js.
+          To make it actually send emails, you'll need to:
+          1. Add a backend endpoint (Formspree, Netlify Forms, your own API)
+          2. Set the form's action attribute and method="POST"
+          3. Remove the e.preventDefault() in contact.js submit handler
+             and let the form submit naturally, or use fetch() to POST.
+        -->
+        <form class="contact-form fade-in-up" id="contact-form" novalidate>
+
+          <!-- Name -->
+          <div class="form-group">
+            <label class="form-label" for="field-name">
+              Full Name <span class="required" aria-label="required">*</span>
+            </label>
+            <input
+              class="form-input"
+              type="text"
+              id="field-name"
+              name="name"
+              placeholder="Your full name"
+              autocomplete="name"
+              aria-describedby="field-name-error"
+              required
+            />
+            <span class="form-error" id="field-name-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="field-email">
+              Email Address <span class="required" aria-label="required">*</span>
+            </label>
+            <input
+              class="form-input"
+              type="email"
+              id="field-email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              aria-describedby="field-email-error"
+              required
+            />
+            <span class="form-error" id="field-email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Subject -->
+          <div class="form-group">
+            <label class="form-label" for="field-subject">
+              Subject <span class="required" aria-label="required">*</span>
+            </label>
+            <input
+              class="form-input"
+              type="text"
+              id="field-subject"
+              name="subject"
+              placeholder="What is this about?"
+              aria-describedby="field-subject-error"
+              required
+            />
+            <span class="form-error" id="field-subject-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label" for="field-message">
+              Message <span class="required" aria-label="required">*</span>
+            </label>
+            <textarea
+              class="form-textarea"
+              id="field-message"
+              name="message"
+              placeholder="Tell me about your project, idea, or question…"
+              aria-describedby="field-message-error"
+              required
+            ></textarea>
+            <span class="form-error" id="field-message-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn-submit" type="submit" id="form-submit">
+            Send Message
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+
+        </form>
+
+        <!-- Success message — shown after successful submission -->
+        <div class="form-success" id="form-success" aria-live="polite">
+          <!-- Check circle icon -->
+          <svg class="form-success__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12
+                     2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <h2 class="form-success__heading">Message Sent!</h2>
+          <p class="form-success__text">
+            Thanks for reaching out. I'll read your message and get back to you
+            within 1–2 business days.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT: Contact info & socials -->
+      <aside class="contact-info fade-in-up" aria-label="Contact information">
+
+        <!-- EDIT: Your email address -->
+        <div class="contact-info__block">
+          <span class="contact-info__label">Email</span>
+          <span class="contact-info__value">
+            <a href="mailto:maeve.create@gmail.com">maeve.create@gmail.com</a>
+          </span>
+        </div>
+
+        <!-- EDIT: Your location (or remove if you prefer) -->
+        <div class="contact-info__block">
+          <span class="contact-info__label">Based in</span>
+          <span class="contact-info__value">The Netherlands</span>
+        </div>
+
+        <!-- EDIT: Your availability status -->
+        <div class="contact-info__block">
+          <span class="contact-info__label">Availability</span>
+          <span class="contact-info__value">Open to freelance &amp; full-time opportunities</span>
+        </div>
+
+        <!-- Social links -->
+        <div class="contact-info__block">
+          <span class="contact-info__label">Connect</span>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+            </a>
+            <a href="https://github.com/Martngu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Note about response times -->
+        <p class="contact-info__note">
+          I typically respond within 1–2 business days. For urgent inquiries,
+          feel free to reach out directly via LinkedIn.
+        </p>
+
+      </aside>
+
+    </section><!-- /contact-layout -->
+
+  </main><!-- /page-content -->
+
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer">
+    <p>&copy; <span id="footer-year"></span> Martin Nguyen. All rights reserved.</p>
+    <p>
+      <a href="index.html">Home</a>
+      &nbsp;·&nbsp;
+      <a href="about.html">About</a>
+    </p>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/effects.js"></script>
+  <script src="js/contact.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

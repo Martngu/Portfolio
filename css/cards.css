@@ -1,0 +1,832 @@
+/* ==========================================================================
+   cards.css — Tab System, Project Cards, Tool Cards, Hover Effects
+   Portfolio: Martin Nguyen
+   ==========================================================================
+   TABLE OF CONTENTS
+   1.  Composition Section Wrapper
+   2.  Section Header (role title + tab bar)
+   3.  Tab Buttons
+   4.  Card Grid
+   5.  Base Card Styles
+   6.  Project Cards (image thumbnail + text)
+   7.  Tool Cards (icon-centred)
+   8.  Composing Cards
+   9.  Card Hover — Border Glow & Surface Glint
+   10. Empty / Placeholder State
+   ========================================================================== */
+
+
+/* ============================================================
+   1. COMPOSITION SECTION WRAPPER
+   ============================================================ */
+
+.composition-section {
+  padding-block: var(--space-xl) var(--space-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   2. SECTION HEADER — Role title above the tabs
+   ============================================================ */
+
+.composition-header {
+  margin-bottom: var(--space-lg);
+}
+
+.composition-header__role {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+
+/* ============================================================
+   3. TAB BUTTONS
+      Inspired by the pill-tab switcher in the reference image.
+      Active tab: solid accent background.
+      Inactive: outlined, subdued.
+   ============================================================ */
+
+.tab-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  /* Default: outlined inactive state */
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background    var(--transition-fast),
+    color         var(--transition-fast),
+    border-color  var(--transition-fast),
+    box-shadow    var(--transition-fast),
+    transform     var(--transition-fast);
+  user-select: none;
+}
+
+.tab-btn:hover {
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Active / selected state — matches green button in reference */
+.tab-btn.active {
+  background: var(--color-accent);
+  color: #080808;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 16px rgba(127, 255, 0, 0.35);
+}
+
+/* Small dot indicator on active tab */
+.tab-btn.active::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff14f0;
+  opacity: 1;
+  box-shadow: 0 0 6px #ff14f0;
+}
+
+/* Tab panel — only one is visible at a time */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+
+/* ============================================================
+   4. CARD GRID
+      Responsive 3-column grid that collapses on smaller screens.
+   ============================================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/* On medium screens: 2 columns */
+@media (max-width: 900px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* On small screens: 1 column */
+@media (max-width: 540px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+/* Tool card grid uses 4 columns on wide screens */
+.card-grid--tools {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1000px) {
+  .card-grid--tools { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .card-grid--tools { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ============================================================
+   5. BASE CARD STYLES
+      Shared between project cards, tool cards, and composing cards.
+      .glint-target is added by cards.css for the sweep effect.
+   ============================================================ */
+
+.card {
+  position: relative;
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  /* Subtle default border */
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  cursor: pointer;
+  /* Smooth all interactive properties */
+  transition:
+    transform      var(--transition-normal),
+    border-color   var(--transition-normal),
+    box-shadow     var(--transition-normal),
+    background     var(--transition-normal);
+  /* For glint clip */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* ---- HOVER STATE ---- */
+.card:hover {
+  background: var(--color-card-hover);
+  transform: translateY(-4px) scale(1.01);
+  /* Accent border glow — the key "sleek border glint" effect */
+  border-color: rgba(127, 255, 0, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(127, 255, 0, 0.2),
+    0 0 20px rgba(127, 255, 0, 0.18),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Card inner padding zone */
+.card__body {
+  padding: var(--space-md);
+  position: relative;
+  z-index: 2; /* Above glint overlay */
+}
+
+/* Card title */
+.card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .card__title {
+  color: var(--color-accent);
+}
+
+/* Card description */
+.card__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* Meta row on card footer */
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Small tag/badge on cards (e.g., "Unity", "Figma") */
+.card__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.card:hover .card__tag {
+  border-color: rgba(127, 255, 0, 0.3);
+  color: var(--color-accent);
+}
+
+/* Date badge on card */
+.card__date {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* External link indicator — shown top-right on hover */
+.card__link-icon {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transform: translate(4px, -4px);
+  transition:
+    opacity    var(--transition-normal),
+    transform  var(--transition-normal);
+  z-index: 3;
+  color: var(--color-accent);
+}
+
+.card:hover .card__link-icon {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+/* ============================================================
+   6. PROJECT CARDS
+      Larger cards with a top image thumbnail area.
+      To add a real image: replace .card__thumb background
+      with an <img> tag or update the background-image property.
+   ============================================================ */
+
+.card--project .card__thumb {
+  width: 100%;
+  /* 16:9 thumbnail ratio */
+  aspect-ratio: 16 / 9;
+  /* Placeholder checkerboard — replace with your screenshot */
+  background-image:
+    linear-gradient(45deg, #1c1c1c 25%, transparent 25%),
+    linear-gradient(-45deg, #1c1c1c 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1c1c1c 75%),
+    linear-gradient(-45deg, transparent 75%, #1c1c1c 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #111;
+  position: relative;
+  overflow: hidden;
+  /* Separator line between thumb and body */
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Drop a real image inside .card__thumb:
+   <img class="card__thumb-img" src="assets/images/project-1.jpg" alt="..."> */
+.card__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card--project:hover .card__thumb-img {
+  transform: scale(1.04);
+}
+
+/* Overlay on thumb showing project number placeholder */
+.card__thumb-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   7. TOOL CARDS — icon + name + description
+   ============================================================ */
+
+.card--tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  gap: var(--space-xs);
+}
+
+.card--tool .card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.card--tool:hover .card__icon {
+  background: var(--color-accent-dim);
+  border-color: rgba(127, 255, 0, 0.3);
+}
+
+.card--tool .card__icon svg,
+.card--tool .card__icon img { width: 28px; height: 28px; }
+
+.card--tool .card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.card--tool .card__level {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+/* Description text on tool cards */
+.card--tool .card__desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  text-align: center;
+  max-width: 22ch;
+}
+
+
+/* ============================================================
+   8. COMPOSING CARDS — Clean thumbnail display
+   ============================================================ */
+
+.card--composing .card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background-color: #0b0b0b;
+}
+
+.card--composing .card__thumb img.card__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.card--composing:hover .card__thumb img.card__thumb-img {
+  transform: scale(1.04);
+}
+
+
+/* ============================================================
+   9. CARD HOVER — GLINT (ref effects.css)
+   ============================================================ */
+
+.card .card__body,
+.card .card__thumb { position: relative; z-index: 2; }
+
+
+/* ============================================================
+   10. EMPTY STATE
+   ============================================================ */
+
+.card-grid--empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+
+/* ============================================================
+   11. CARD MODAL
+       Full-screen overlay with 2-column layout:
+       left = YouTube embed + watch link
+       right = title, tag, description
+   ============================================================ */
+
+/* -- Overlay backdrop -- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  /* Start invisible */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* -- Modal box -- */
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9),
+              0 0 0 1px rgba(127, 255, 0, 0.08);
+  /* Slide-up animation driven by overlay open class */
+  transform: scale(0.94) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+.modal-overlay.open .modal-box {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* -- Close button -- */
+.modal-close {
+  position: sticky;
+  top: var(--space-md);
+  left: 100%;
+  transform: translateX(calc(-1 * var(--space-md)));
+  margin-bottom: -36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--color-text);
+}
+
+/* -- Inner grid -- */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 0;
+  min-height: 380px;
+}
+
+/* -- Video / Media column (left) -- */
+.modal-video-col {
+  display: flex;
+  flex-direction: column;
+  background: #080808;
+  border-right: 1px solid var(--color-border);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  overflow: hidden;
+}
+
+/* 16:9 Video & Media Wrapper */
+.modal-video-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.modal-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.modal-video-wrap .modal-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Modal actions container */
+.modal-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  width: 100%;
+}
+
+.modal-yt-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 0, 0, 0.35);
+  background: rgba(255, 0, 0, 0.07);
+  color: #ff4444;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+  flex: 1;
+  text-align: center;
+}
+
+.modal-yt-link:hover {
+  background: rgba(255, 0, 0, 0.15);
+  border-color: rgba(255, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.modal-yt-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* Secondary external action link in modal (e.g. Itch.io / Figma) */
+.modal-ext-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(127, 255, 0, 0.4);
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+  flex: 1;
+  text-align: center;
+}
+
+.modal-ext-link:hover {
+  background: rgba(127, 255, 0, 0.22);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.modal-ext-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* -- Info column (right) -- */
+.modal-info-col {
+  padding: var(--space-lg) var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  overflow-y: auto;
+}
+
+.modal-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.modal-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(127, 255, 0, 0.3);
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+  width: fit-content;
+}
+
+.modal-date {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.modal-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+/* Specs Table (Role & Platform) */
+.modal-specs {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-block: 4px;
+}
+
+.modal-spec-row {
+  display: flex;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.modal-spec-row:last-child {
+  border-bottom: none;
+}
+
+.modal-spec-label {
+  width: 110px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #777777;
+  text-transform: uppercase;
+}
+
+.modal-spec-val {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #eeeeee;
+}
+
+/* Sections: Overview & Key Contributions */
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.modal-section-bar {
+  width: 28px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+}
+
+.modal-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.modal-overview-text {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #aaaaaa;
+}
+
+.modal-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin-block: 4px;
+}
+
+.modal-contributions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-contributions-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #c4c4c4;
+}
+
+.modal-contributions-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Responsive — stack vertically on smaller screens */
+@media (max-width: 700px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-video-col {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .modal-info-col {
+    padding: var(--space-md);
+  }
+}
+
+/* ============================================================
+   12. PROGRAM HIGHLIGHT GLIMMER
+   ============================================================ */
+
+.program-highlight {
+  color: #7fff00;
+  font-weight: 700;
+  position: relative;
+  display: inline;
+  background: linear-gradient(
+    120deg,
+    rgba(127, 255, 0, 0.0) 0%,
+    rgba(127, 255, 0, 0.15) 40%,
+    rgba(127, 255, 0, 0.0) 60%,
+    rgba(127, 255, 0, 0.0) 100%
+  );
+  background-size: 200% 100%;
+  animation: program-glimmer 3s ease-in-out infinite;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+@keyframes program-glimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

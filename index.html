@@ -1,0 +1,1563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- ================================================================
+       META & SEO
+       ================================================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Martin Nguyen a Game Designer & Audio Designer. Portfolio showcasing game design projects, UI/UX work, and creative media."
+    />
+    <meta
+      name="keywords"
+      content="Martin Nguyen, game designer, UI/UX, Creative Media, Game Technologies, Saxion, portfolio"
+    />
+    <meta name="author" content="Martin Nguyen" />
+
+    <!-- Open Graph (for link previews on LinkedIn, Discord, etc.) -->
+    <meta
+      property="og:title"
+      content="Martin Nguyen — Game Designer & Audio Designer"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio of Martin Nguyen — Game design, UX, and creative media."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mnportfolio.maevede.cc/" />
+    <!-- EDIT: replace with your actual OG image path -->
+    <meta property="og:image" content="assets/images/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Martin Nguyen — Game Designer & Audio Designer"
+    />
+    <meta name="twitter:description" content="Portfolio of Martin Nguyen." />
+
+    <title>Martin Nguyen - Game Designer & audio designer</title>
+
+    <!-- Google Fonts: Inter (body) + Outfit, Plus Jakarta Sans & Space Grotesk (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets (load order matters) -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+
+    <!-- Canonical URL - EDIT to your real domain -->
+    <link rel="canonical" href="https://mnportfolio.maevede.cc/" />
+    <style>
+      @keyframes bounce-arrow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(6px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================================================================
+       FIXED SOCIAL SIDEBAR
+       Add / remove <li> items to change which platforms are shown.
+       SVG icons are inline for zero extra HTTP requests.
+       ================================================================ -->
+    <aside class="social-sidebar" aria-label="Social media links">
+      <ul>
+        <!-- LinkedIn -->
+        <li>
+          <a
+            class="social-sidebar__link"
+            href="https://www.linkedin.com/in/martngu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            title="LinkedIn"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853
+                     0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823
+                     1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337
+                     7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604
+                     13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0
+                     1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24
+                     23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+              />
+            </svg>
+          </a>
+        </li>
+
+        <!-- GitHub -->
+        <li>
+          <a
+            class="social-sidebar__link"
+            href="https://github.com/Martngu"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            title="GitHub"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205
+                     11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724
+                     -4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087
+                     -.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07
+                     1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665
+                     -.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135
+                     -.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0
+                     0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23
+                     3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23
+                     3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
+                     0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565
+                     22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ================================================================
+       NAVBAR
+       Logo / name on the left, page links on the right.
+       .active class marks the current page.
+       ================================================================ -->
+    <header>
+      <nav class="navbar" aria-label="Main navigation">
+        <!-- Brand / Logo - left side -->
+        <a
+          class="navbar__brand"
+          href="index.html"
+          aria-label="Martin Nguyen - Home"
+        >
+          Martin <span>Nguyen</span>
+        </a>
+
+        <!-- Navbar Center: Interactive Polyhedron Easter Egg Target -->
+        <div class="navbar__center-target" id="easter-egg-target" aria-label="Orb Collector Mini-Game" title="Guide neon orbs here with your mouse!">
+          <div class="target-shape-container">
+            <div class="siri-pulse-aura"></div>
+            <svg class="polyhedron-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7fff00" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#005500" stop-opacity="0.3"/>
+                </linearGradient>
+                <linearGradient id="polyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#003300" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <polygon points="50,5 78,20 66,45 34,45 22,20" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="50,5 78,20 95,45 78,70 50,55" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="78,20 95,45 66,45" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="22,20 34,45 5,45" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="22,20 50,5 5,45 22,70" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="34,45 66,45 78,70 50,95 22,70" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1.5"/>
+              <polygon points="5,45 22,70 34,95 50,95" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="95,45 78,70 66,95 50,95" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1"/>
+              <circle cx="50" cy="5" r="2.5" fill="#7fff00"/>
+              <circle cx="78" cy="20" r="2.5" fill="#7fff00"/>
+              <circle cx="22" cy="20" r="2.5" fill="#7fff00"/>
+              <circle cx="66" cy="45" r="2.5" fill="#7fff00"/>
+              <circle cx="34" cy="45" r="2.5" fill="#7fff00"/>
+              <circle cx="50" cy="55" r="2.5" fill="#7fff00"/>
+              <circle cx="78" cy="70" r="2.5" fill="#7fff00"/>
+              <circle cx="22" cy="70" r="2.5" fill="#7fff00"/>
+              <circle cx="50" cy="95" r="2.5" fill="#7fff00"/>
+            </svg>
+          </div>
+          <span class="target-counter" id="easter-egg-counter">0/10</span>
+          <a class="secret-reward-btn hidden" id="secret-reward-btn" href="https://www.youtube.com/watch?v=w7x_lWJNnNg" target="_blank" rel="noopener noreferrer">
+            🎉 You found a little secret! ↗
+          </a>
+        </div>
+
+        <!-- Desktop nav links - right side -->
+        <ul class="navbar__links" role="list">
+          <li>
+            <a class="navbar__link active" href="index.html" aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li><a class="navbar__link" href="about.html">About</a></li>
+          <li><a class="navbar__link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger toggle - visible only on mobile (CSS) -->
+        <button
+          class="navbar__hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Mobile full-screen overlay menu -->
+        <div
+          class="navbar__mobile-menu"
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <ul role="list">
+            <li><a class="navbar__link" href="index.html">Home</a></li>
+            <li><a class="navbar__link" href="about.html">About</a></li>
+            <li><a class="navbar__link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ================================================================
+       MAIN PAGE CONTENT
+       ================================================================ -->
+    <main class="page-content">
+      <!-- ============================================================
+         HERO SECTION
+         Name + role left, profile picture right.
+         Based on the layout reference image provided.
+         ============================================================ -->
+      <section class="hero container" aria-label="Introduction">
+        <!-- Left: Text content -->
+        <div class="hero__text">
+          <!-- Small label above the name -->
+          <span class="hero__role">Game Designer & Audio designer</span>
+
+          <!-- EDIT: Your name -->
+          <h1 class="hero__name">Martin<br />Nguyen</h1>
+
+          <!-- EDIT: One-liner about you -->
+          <p class="hero__mission">
+            Bridging UX, sound, and game design to create unforgettable
+            experiences for everyone.
+          </p>
+          <p class="hero__tagline">
+            Making immersive game experiences and intuitive interfaces -
+            currently finishing my degree in Creative Media &amp; Game
+            Technologies at Saxion University.
+          </p>
+
+          <!--
+          CTA Button:
+          - data-scroll-to targets the composition section below
+          - cards.js intercepts the click and fires the reveal animation
+        -->
+          <a
+            class="btn-cta"
+            href="#composition"
+            data-scroll-to="#composition"
+            aria-label="View my work scroll to projects"
+          >
+            View My Work
+            <!-- Down arrow icon -->
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path d="M12 16l-6-6h12z" />
+            </svg>
+          </a>
+        </div>
+        <!-- /hero__text -->
+
+        <!-- Right: Profile picture -->
+        <div class="hero__image-wrap" aria-label="Profile photo">
+          <!--
+            Photo path: assets/images/profile.jpg
+            The image now uses object-fit: contain so it shows fully uncropped.
+            Replace the src with your actual filename if different.
+          -->
+          <img
+            src="assets/images/profile.jpg"
+            alt="Martin Nguyen  profile photo"
+            width="600"
+            height="800"
+          />
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          Scroll
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+          </svg>
+        </div>
+      </section>
+      <!-- /hero -->
+
+      <!-- Divider line matching reference image -->
+      <div
+        class="section-divider container"
+        role="separator"
+        aria-hidden="true"
+      ></div>
+
+      <!-- ============================================================
+         COMPOSITION / WORK SECTION
+         Three tabs: My Projects | Tools | Composing
+         Cards flash in on tab click and on CTA button press.
+         ============================================================ -->
+      <section
+        class="composition-section container"
+        id="composition"
+        aria-label="My work and skills"
+      >
+        <!-- Section header -->
+        <div class="composition-header">
+          <!-- EDIT: Change this to your current role/focus -->
+          <h2 class="composition-header__role">
+            Game Designer &amp; Audio Designer
+          </h2>
+        </div>
+
+        <!-- Tab navigation bar -->
+        <nav class="tab-bar" aria-label="Work categories" role="tablist">
+          <!--
+          data-tab value must match data-panel on the corresponding .tab-panel below.
+          The first .tab-btn.active is the default selected tab.
+        -->
+          <button
+            class="tab-btn active"
+            data-tab="projects"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-projects"
+          >
+            My Projects
+          </button>
+          <button
+            class="tab-btn"
+            data-tab="skillset"
+            id="tab-skillset"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-skillset"
+          >
+            Skillset
+          </button>
+          <button
+            class="tab-btn"
+            data-tab="composing"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-composing"
+          >
+            Composing
+          </button>
+        </nav>
+
+        <!-- ============================================================
+           TAB PANEL: MY PROJECTS
+           EDIT: Add / remove .card--project blocks to change projects.
+           Each card uses:
+             data-link  - URL to open on click (use "#" if not ready yet)
+           ============================================================ -->
+        <div
+          class="tab-panel active"
+          data-panel="projects"
+          id="panel-projects"
+          role="tabpanel"
+          aria-labelledby="tab-projects"
+        >
+          <div class="card-grid">
+            <!-- ---- PROJECT CARD 1 ---- -->
+            <!--
+            HOW TO EDIT A PROJECT CARD:
+            1. Change data-link to the URL of your project page or itch.io
+            2. Replace the .card__thumb-label text with a short tag
+            3. Update .card__title with the project name
+            4. Update .card__desc with a 1-2 sentence description
+            5. Change the .card__tag text (genre / platform)
+            6. To add a real thumbnail:
+               - Put the image in assets/images/
+               - Add inside .card__thumb:
+                 <img class="card__thumb-img" src="assets/images/proj1.jpg" alt="..." />
+               - Remove the .card__thumb-label span
+          -->
+            <!-- ---- PROJECT 1: Thales - Naval warfare ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Thales - Naval warfare"
+              data-modal-tag="Game Design · UI/UX"
+              data-modal-date="2023 - 2024"
+              data-modal-role="Lead Game Designer & UI/UX (Internship)"
+              data-modal-platform="PC / Tactical Simulation"
+              data-modal-overview="Naval warfare is a strategy realism game inspired by Thales and how they operate naval missions in real life. The game simulates realistic tactical scenarios where information superiority dictates fleet survival. Players deploy reconnaissance ships, gather sensor intelligence to uncover enemy locations, launch coordinated missile strikes, and deploy defensive countermeasure flares to survive incoming barrages."
+              data-modal-contributions="Led a 4-person team over a 6-month internship, utilizing Confluence for extensive design documentation|Designed strategic combat loops and naval abilities, implementing core UX flows directly in Unity|Made wireframes, radar displays, tactical HUD layouts, and interaction flows in Figma|Facilitated Scrum ceremonies and sprint planning"
+              data-modal-thumb="assets/images/thales-naval.svg"
+              data-modal-team="4"
+              data-modal-duration="6 Months"
+              data-modal-programs="Unity, Confluence, Figma"
+              data-youtube="9mTBeol3GdE"
+              data-ext-link="https://www.thalesgroup.com/en"
+              data-ext-label="Thales Group "
+              aria-label="Thales - Naval warfare - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/thales-naval.svg"
+                  alt="Thales - Naval warfare radar screen"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Thales - Naval warfare</h3>
+                <p class="card__desc">
+                  Strategy realism game inspired by real-life naval missions.
+                  Lead role managing game mechanics, design, and UI/UX.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Lead Game Designer & UI/UX</span>
+                  <span class="card__date">[Date: 2025 - 2026]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 2: Bentelo butcher ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Bentelo butcher - UI, Mechanics & Game design"
+              data-modal-tag="Game Design · UI/UX"
+              data-modal-date="2023"
+              data-modal-role="Game Designer & UI/UX Lead"
+              data-modal-platform="PC (Windows)"
+              data-modal-overview="Project Show-Off was an intensive 3 months assignment developed by a 7-person team. Together, we made a first-person atmospheric horror game grounded in a regional folklore myth originating from Overijssel. The game weaves eerie environments, integrated logic puzzles, and narrative pacing to keep players immersed in dread."
+              data-modal-contributions="Collaborated in a 7-person team to conceptualize horror themes and implement environmental puzzles in Unity|Modeled eerie environmental assets and props using Blender|Designed UI and UX elements, inventory inspection HUD, and readable prompts in Figma|Shipped and published the complete playable release build on Itch.io"
+              data-modal-thumb="assets/images/bentelo-butcher.svg"
+              data-modal-team="7"
+              data-modal-duration="3 Months"
+              data-modal-programs="Figma, Blender, Unity"
+              data-youtube="-9ys18Mn0Jo"
+              data-ext-link="https://maeve-create.itch.io/bentelo-butcher"
+              data-ext-label="Download on Itch.io "
+              aria-label="Bentelo butcher - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/bentelo-butcher.svg"
+                  alt="Bentelo butcher mansion interior"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Bentelo butcher</h3>
+                <p class="card__desc">
+                  A 3 months 7-person horror game based on regional Overijssel
+                  folklore, featuring atmospheric environments and puzzles.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Game Designer & UI/UX Lead</span>
+                  <span class="card__date">[Date: 2025]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 3: City Bash ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="City Bash - UI, Mechanics & Level design"
+              data-modal-tag="Level Design · Mechanics"
+              data-modal-date="2023"
+              data-modal-role="Level Designer & Mechanics Designer"
+              data-modal-platform="Mobile (Android / iOS)"
+              data-modal-overview="Developed during Project Innovation with a 6-person team, the objective was creating a mobile game taking creative advantage of unique hardware capabilities. We utilized the smartphone's internal gyroscope to deliver intuitive, physical motion-steered driving and high-velocity urban destruction."
+              data-modal-contributions="Level design block out and final placement inUnity|Designed multiple speed mechanics, obstacles, different buffs and jump ramps|Level design prep-planned in Figma that seamlessly adapts to active device tilt angles|Conducted iterative user playtests to balance difficulty curves and steering responsiveness"
+              data-modal-thumb="assets/images/city-bash.svg"
+              data-modal-team="6"
+              data-modal-duration="2 Weeks"
+              data-modal-programs="Unity, Figma"
+              data-youtube="_oaqpxK-Bec"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="City Bash - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/city-bash.svg"
+                  alt="City Bash gameplay screen"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">City Bash</h3>
+                <p class="card__desc">
+                  6-person mobile innovation project using phone gyroscope
+                  motion controls for fluid urban driving and bashing.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Level & Mechanics Designer</span>
+                  <span class="card__date">[Date: 2024W]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 4: Music Dash ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Music Dash - FMOD, Game design & Audio"
+              data-modal-tag="Audio Design · Composition"
+              data-modal-date="2023"
+              data-modal-role="Music Composer & Audio Gameplay Designer"
+              data-modal-platform="PC / Standalone"
+              data-modal-overview="In this collaborative prototype project, I created the complete musical score and collaborated with a teammate to build a game mechanic revolving directly around musical beats. I orchestrated dynamic tracks with distinct rhythmic cues engineered specifically for real-time obstacle synchronization."
+              data-modal-contributions="Composed original high-energy rhythm soundtracks from scratch using Ableton Live 12|Designed obstacle spawn patterns synchronized to track BPM and percussion transients"
+              data-modal-thumb="assets/images/music-dash.svg"
+              data-modal-team="2"
+              data-modal-duration="4 Weeks"
+              data-modal-programs="Ableton Live 12"
+              data-youtube="jcvyy2iaSkc"
+              data-ext-link="https://maeve-create.itch.io/music-dash"
+              data-ext-label="Download on Itch.io "
+              aria-label="Music Dash - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/music-dash.svg"
+                  alt="Music Dash gameplay graphic"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Music Dash</h3>
+                <p class="card__desc">
+                  Rhythm prototype game with custom orchestrated musical beats
+                  and synchronized FMOD audio mechanics.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Composer & Audio Designer</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 5: Sea Critters ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Sea Critters - UI/UX & Mechanics"
+              data-modal-tag="UI/UX · Systems Design"
+              data-modal-date="2024"
+              data-modal-role="UI/UX Designer & Systems Balancer"
+              data-modal-platform="PC / Web (Itch.io)"
+              data-modal-overview="As part of a team I was tasked with creating an engaging 2D survival game, our theme specifically chosen to be underwater with a submarine as player. My primary focus was dedicated to UX framework, core mechanics and core systems balancing. I designed gameplay rules, player creature abilities, predator AI pacing, and all HUD feedback mechanisms."
+              data-modal-contributions="Designed intuitive health gauges, stamina meters, ability cooldown timers, and creature stats in Unity|Formulated mathematical progression tables for creature abilities and predator speed scaling|Created wireframes, menu flows, and HUD assets in Figma|Published and maintained the public release build on Itch.io"
+              data-modal-thumb="assets/images/sea-critters.svg"
+              data-modal-team="5"
+              data-modal-duration="2 Weeks"
+              data-modal-programs="Figma, Unity"
+              data-youtube=""
+              data-ext-link="https://battleramgamer.itch.io/sea-critters"
+              data-ext-label="Download on Itch.io "
+              aria-label="Sea Critters - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/sea-critters.svg"
+                  alt="Sea Critters 2D artwork"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Sea Critters</h3>
+                <p class="card__desc">
+                  2D underwater game project focusing on player abilities, rule
+                  balance, enemy encounters, and responsive UI/UX.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">UI/UX Designer & Balancer</span>
+                  <span class="card__date">[Date: 2024]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 7: Swing it ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Swing it - Tiled & Level design"
+              data-modal-tag="Level Design"
+              data-modal-date="2023"
+              data-modal-role="Level Designer"
+              data-modal-platform="PC (2D Engine)"
+              data-modal-overview="Tiled Map Editor was utilized during team production of a 2D momentum-based platformer. As lead level designer, my mandate centered on architecting engaging level topography, puzzle timing, rope swing zones, and precision collision geometry across each stage."
+              data-modal-contributions="Authored multi-layer tilemaps, dynamic parallax backdrops, and hitboxes in Tiled for the GxP Engine|Designed UI mockups and level flow diagrams in Figma|Balanced stage difficulty curves, checkpoint cadence, and collectible placements|Exported optimized JSON tilemap structures directly into engine import pipelines"
+              data-modal-thumb="assets/images/swing-it-screenshot.jpg"
+              data-modal-team="4"
+              data-modal-duration="2 Weeks"
+              data-modal-programs="GxP Engine, Figma"
+              data-youtube="1LoBERwySIM"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Swing it - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/swing-it-screenshot.jpg"
+                  alt="Swing it gameplay screenshot"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Swing it</h3>
+                <p class="card__desc">
+                  2D platforming level design made in Tiled with custom tile
+                  collision maps and obstacle progression.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Level Designer</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 8: Porto da Lua ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Porto da Lua - UX Research & Web Design"
+              data-modal-tag="UX Research / Web Design"
+              data-modal-date="2026"
+              data-modal-role="Team &amp; Scrum Leader"
+              data-modal-platform="Web (HTML / CSS / AI)"
+              data-modal-overview="Conducted UX research and designed/created a website using AI based on our design findings. Led a team of 4 through the full research and design process as part of the EK project."
+              data-modal-contributions="Led a 4-person team through user research, ideation, and web design using Figma|Conducted comprehensive UX research including user interviews and usability testing|Designed and built a responsive website using Antigravity, integrating AI-generated content|Presented final deliverables and research outcomes to stakeholders"
+              data-modal-thumb="assets/images/portdo da lua EK.PNG"
+              data-modal-team="4"
+              data-modal-duration="2 Weeks"
+              data-modal-programs="Figma, Antigravity"
+              data-youtube=""
+              data-ext-link="https://martngu.github.io/Improved-porto/activities.html"
+              data-ext-label="View Project "
+              aria-label="Porto da Lua - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/portdo da lua EK.PNG"
+                  alt="Porto da Lua UX Research project"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Porto da Lua</h3>
+                <p class="card__desc">
+                  UX research and AI-based website design for the EK project,
+                  leading a team of 4.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Team &amp; Scrum Leader</span>
+                  <span class="card__date">[Date: 2026]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+          </div>
+          <!-- /card-grid -->
+        </div>
+        <!-- /tab-panel: projects -->
+
+        <!-- ============================================================
+           TAB PANEL: SKILLSET
+           ============================================================ -->
+        <div
+          class="tab-panel"
+          data-panel="skillset"
+          id="panel-skillset"
+          role="tabpanel"
+          aria-labelledby="tab-skillset"
+        >
+          <div class="card-grid">
+            <!-- ---- SKILL 1: Figma ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Figma"
+              data-modal-tag="UI/UX & Prototyping"
+              data-modal-role="Lead UI/UX & Interaction Design"
+              data-modal-platform="Figma / Design Systems"
+              data-modal-overview="Prototyped UI and menu flows in Figma for multiple game projects, focusing on player onboarding and accessibility. Past projects and usage have been: building prototypes, UI/UX, and website prototyping."
+              data-modal-contributions="Prototyped interactive UI and menu flows across multiple game projects|Focused on player onboarding and accessible design systems|Built modular components, wireframes, and clickable website prototypes"
+              data-modal-thumb="assets/images/website-prototyping.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Figma - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/website-prototyping.svg"
+                  alt="Figma UI/UX Prototyping"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Figma</h3>
+                <p class="card__desc">
+                  Prototyped UI and menu flows in Figma for multiple game
+                  projects, focusing on player onboarding and accessibility.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">UI/UX & Prototyping</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 2: Ableton Live ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Ableton Live"
+              data-modal-tag="Audio & Music Production"
+              data-modal-role="Music Composer & Sound Designer"
+              data-modal-platform="Ableton Live / DAW"
+              data-modal-overview="I'm comfortable using Ableton Live to edit, layer, and design custom sound effects. I apply music theory in my workflow and am actively expanding into composing original music with the same tool, driven by curiosity and creative exploration."
+              data-modal-contributions="Edited, layered, and synthesized custom sound effects for games|Applied music theory principles in arrangement and orchestration|Composed original soundtracks and dynamic stems from scratch"
+              data-modal-thumb="assets/images/ableton-skill.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Ableton Live - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/ableton-skill.svg"
+                  alt="Ableton Live DAW session"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Ableton Live</h3>
+                <p class="card__desc">
+                  Comfortable editing, layering, and designing custom sound
+                  effects, applying music theory, and composing original music.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Audio & Music</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 3: Unity ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Unity"
+              data-modal-tag="Game Engine & Prototyping"
+              data-modal-role="Gameplay & UI Prototyper"
+              data-modal-platform="Unity Engine (C#)"
+              data-modal-overview="For past projects I've used Unity and am familiar with its navigation and usage. It is something I'd love to learn more about, work in whilst broadening my knowledge about it."
+              data-modal-contributions="Developed gameplay prototypes and mechanics in C#|Navigated engine scene hierarchies, components, and prefabs|Designed and implemented interactive UI with Unity Canvas"
+              data-modal-thumb="assets/images/unity-skill.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Unity - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/unity-skill.svg"
+                  alt="Unity game engine editor"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Unity</h3>
+                <p class="card__desc">
+                  Familiar with navigation, scene setup, C# gameplay scripting,
+                  and rapid game prototyping in past team projects.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Game Engine</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 4: Maya ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Maya"
+              data-modal-tag="3D Modeling & Texturing"
+              data-modal-role="3D Artist & Modeler"
+              data-modal-platform="Autodesk Maya & Substance Painter"
+              data-modal-overview="I've learned and have experience in UV mapping and 3D modelling in Maya. Additionally I'm able to use Adobe Substance painter to paint the model in. Working on Maya is a enjoyable process to me that I'm willing to learn more about."
+              data-modal-contributions="Created clean 3D polygonal models and topology in Maya|Executed accurate UV unwrapping and mapping layouts|Handled PBR texture painting in Adobe Substance Painter"
+              data-modal-thumb="assets/images/maya-skill.svg"
+              data-youtube=""
+              data-ext-link="https://sketchfab.com/maritin"
+              data-ext-label="View on Sketchfab "
+              aria-label="Maya - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/maya-skill.svg"
+                  alt="Maya 3D modeling viewport"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Maya</h3>
+                <p class="card__desc">
+                  Experience in UV mapping and 3D modelling in Maya, alongside
+                  texture painting with Adobe Substance Painter.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">3D Modeling</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 5: Photoshop ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Photoshop"
+              data-modal-tag="Asset Design & Compositing"
+              data-modal-role="Graphic Designer & Compositor"
+              data-modal-platform="Adobe Photoshop"
+              data-modal-overview="In the past years I've been using photoshop for projects and assignments. I've been using it every so often ever for several years. The movie poster is made for an assignment. Several different assets were edited and used to bring together one composite."
+              data-modal-contributions="Edited and blended multiple asset layers into polished visual composites|Making UI textures, icons, posters, and marketing mockups|Utilized non-destructive adjustment layers, masks, and color correction"
+              data-modal-thumb="assets/images/photoshop-skill.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Photoshop - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/photoshop-skill.svg"
+                  alt="Photoshop composite artwork poster"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Photoshop</h3>
+                <p class="card__desc">
+                  Years of experience using Photoshop for graphic design, asset
+                  creation, photo manipulation, and poster compositing.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Design & Compositing</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 6: Premiere Pro ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Premiere Pro"
+              data-modal-tag="Video Editing & Motion"
+              data-modal-role="Video Editor & Motion Designer"
+              data-modal-platform="Adobe Premiere Pro"
+              data-modal-overview="Video editing is something I really enjoy and want to learn more about. Having the freedom to make any composites the way you want for the audience to see is something I really enjoy doing and open to learn so much more about it. I have some experience that I plan to build on to more in the future."
+              data-modal-contributions="Cut, paced, and synchronized gameplay trailers to musical beats|Created composite video edits, transitions, and audio syncs|Color-graded footage and exported optimized deliverables for web"
+              data-modal-thumb="assets/images/premiere-skill.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Premiere Pro - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/premiere-skill.svg"
+                  alt="Premiere Pro video timeline editing"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Premiere Pro</h3>
+                <p class="card__desc">
+                  Video editing and compositing for gameplay showcase reels,
+                  synchronized video cuts, and audio pacing.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Video Editing</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- SKILL 7: HTML / CSS / JS ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="HTML / CSS / JS"
+              data-modal-tag="Web Development"
+              data-modal-role="Frontend Web Prototyper"
+              data-modal-platform="HTML5 / Modern CSS / Vanilla JS"
+              data-modal-overview="I have experience working with HTML and CSS to create and style basic web pages. While my JavaScript knowledge is currently at a beginner level, I am planning to expand my skills in this area as part of my ongoing studies."
+              data-modal-contributions="Built semantic, accessible multi-page HTML layouts|Styled responsive layouts using modern Flexbox, Grid, and CSS variables|Implemented interactive DOM controls, tab switchers, and modals"
+              data-modal-thumb="assets/images/html-css-js-skill.svg"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="HTML CSS JS - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/html-css-js-skill.svg"
+                  alt="HTML CSS JavaScript code"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">HTML / CSS / JS</h3>
+                <p class="card__desc">
+                  Experience creating and styling responsive web pages with HTML
+                  and CSS, expanding JavaScript proficiency.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Web Dev</span>
+                  <span class="card__date">[Skill]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+          </div>
+          <!-- /card-grid -->
+        </div>
+        <!-- /tab-panel: skillset -->
+
+        <!-- ============================================================
+           TAB PANEL: COMPOSING
+           EDIT: Add your music / sound design projects here.
+           ============================================================ -->
+        <div
+          class="tab-panel"
+          data-panel="composing"
+          id="panel-composing"
+          role="tabpanel"
+          aria-labelledby="tab-composing"
+        >
+          <div class="card-grid">
+            <!-- ---- COMPOSITION 1: Forgotten ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Forgotten - Orchestral Arrangement"
+              data-modal-tag="Orchestral Arrangement"
+              data-modal-date="2024"
+              data-modal-role="Solo Composer & Arranger"
+              data-modal-platform="Ableton Live / DAW"
+              data-modal-overview="During an exchange student program in Digital Product Development in Copenhagen, we were tasked to learn or polish a creative discipline within 5 days. I chose to push my composing and arranging limits, experimenting with unfamiliar styles, cinematic voicings, and advanced arrangement techniques in Ableton Live. In this song, I composed and arranged all instrumental lines completely from scratch."
+              data-modal-contributions="Composed and orchestrated all instrumental tracks from scratch within a 5-day sprint|Explored complex harmonic voicings, cinematic strings, and dynamic brass swells|Mixed multi-channel orchestral layers in Ableton Live for optimal acoustic headroom and punch"
+              data-modal-thumb="assets/images/forgotten-orchestral.webp"
+              data-youtube="_ZfguYHsECU"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Forgotten - Orchestral Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/forgotten-orchestral.webp"
+                  alt="Forgotten - Orchestral Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Forgotten - Orchestral Arrangement</h3>
+                <p class="card__desc">
+                  Composed and arranged from scratch in Ableton during an
+                  exchange program in Copenhagen.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Orchestral</span>
+                  <span class="card__date">[Date: 2024]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- COMPOSITION 2: Spring ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Spring - Scoring a short film"
+              data-modal-tag="Film Score"
+              data-modal-date="2023"
+              data-modal-role="Film Composer"
+              data-modal-platform="Digital Audio / Film Scoring"
+              data-modal-overview="For my portfolio, I scored an animated short film, focusing on evoking deep narrative emotion through music. This project was developed for the Score Relief competition, where I composed a complete original soundtrack complementing the film's visual rhythm, emotional peaks, and thematic storytelling."
+              data-modal-contributions="Scored original cues synchronized to animated narrative beats for Score Relief|Evoked nuanced character emotion and environmental tension through recurring leitmotifs|Mastered cinematic arrangement dynamics to sit cleanly beneath dialogue and sound effects"
+              data-modal-thumb="assets/images/spring-film-score.webp"
+              data-youtube="feeqDTHA2p8"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Spring - Scoring a short film - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/spring-film-score.webp"
+                  alt="Spring - Scoring a short film"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Spring - Scoring a short film</h3>
+                <p class="card__desc">
+                  Original emotional animated short film soundtrack composed for
+                  the Score Relief competition.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Short Film Score</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- COMPOSITION 3: Soft (Orchestral) ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Soft - Orchestral Arrangement"
+              data-modal-tag="Orchestral Arrangement"
+              data-modal-date="2023"
+              data-modal-role="Solo Composer & Arranger"
+              data-modal-platform="Ableton Live / Orchestral"
+              data-modal-overview="An expansive orchestral rendition of my official piece titled 'Soft'. Designed in Ableton to master professional production workflows and multi-instrument timbral blending, this piece transforms subtle melodic ideas into an emotionally resonant symphonic movement."
+              data-modal-contributions="Arranged original melodic motifs into an expansive multi-instrument symphonic score|Mastered multi-channel routing, automation curves, and expression dynamics in Ableton|Balanced woodwind, string, and brass interplay to evoke emotional depth and dynamic contrast"
+              data-modal-thumb="assets/images/soft-orchestral.webp"
+              data-youtube="ExdfjgyNw2g"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Soft - Orchestral Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/soft-orchestral.webp"
+                  alt="Soft - Orchestral Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Soft - Orchestral Arrangement</h3>
+                <p class="card__desc">
+                  Rich multi-instrument orchestral rendition of my piece 'Soft'
+                  arranged and produced in Ableton.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Orchestral</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- COMPOSITION 4: Diamond Jack ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Diamond Jack - Arrangement"
+              data-modal-tag="Animation Rescore"
+              data-modal-date="2023"
+              data-modal-role="Rescore Composer & Audio Designer"
+              data-modal-platform="Ableton Live / Animation"
+              data-modal-overview="This orchestral piece was built completely from the ground up. The original animation audio was entirely muted, and the objective was composing, recording, and mixing a brand new orchestral score that drives every rapid cut, scene transition, and character beat in the scene."
+              data-modal-contributions="Reimagined and composed the entire animated sequence from scratch with zero reference audio|Timed dynamic tempo shifts, stingers, and brass crescendos to match high-speed visual cuts|Engineered punchy percussion layers and orchestral accents for maximum cinematic impact"
+              data-modal-thumb="assets/images/diamond-jack.webp"
+              data-youtube="Qq4QE4GnOKg"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Diamond Jack - Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/diamond-jack.webp"
+                  alt="Diamond Jack - Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Diamond Jack - Arrangement</h3>
+                <p class="card__desc">
+                  Complete original orchestral rescore composed from scratch to
+                  accompany the animated film.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Animation Rescore</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- COMPOSITION 5: Old world ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Old world - MIDI"
+              data-modal-tag="MIDI Composition"
+              data-modal-date="2023"
+              data-modal-role="MIDI Arranger & Orchestrator"
+              data-modal-platform="MuseScore / Digital Notation"
+              data-modal-overview="A classical composition and creative cover based on Antonín Dvořák's Symphony No. 9 ('From the New World'). The project task was re-interpreting the iconic symphony into a personalized version while preserving its soaring themes, harmonic voice leading, and emotional soul."
+              data-modal-contributions="Transcribed and re-orchestrated thematic movements from Dvořák's Symphony No. 9|Adapted complex classical instrumentation for refined digital soundfont playback in MuseScore|Preserved traditional voice leading while introducing custom melodic counterpoints"
+              data-modal-thumb="assets/images/old-world-midi.webp"
+              data-youtube=""
+              data-ext-link="https://musescore.com/user/84059188/scores/18778003"
+              data-ext-label="View on MuseScore "
+              aria-label="Old world - MIDI - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/old-world-midi.webp"
+                  alt="Old world - MIDI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Old world - MIDI</h3>
+                <p class="card__desc">
+                  Original interpretation and arrangement based on Dvořák's
+                  Symphony No. 9 'From the New World'.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">MIDI Score</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- COMPOSITION 6: Soft (MIDI) ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Soft - MIDI"
+              data-modal-tag="Original Solo Piano"
+              data-modal-date="2023"
+              data-modal-role="Solo Composer & Pianist"
+              data-modal-platform="MuseScore / Solo Piano"
+              data-modal-overview="This piece was entirely composed independently as a musical study in contrasting tonalities. I wove contrasting light and dark harmonic tones into the composition, exploring how nuanced tempo rubato, dynamic shifts, and harmonic tensions can coalesce into a deeply introspective piano piece."
+              data-modal-contributions="Composed full original solo piano sheet music exploring light and dark harmonic interplay|Notated precise dynamic contours, pedal markings, and expressive phrasing in MuseScore|Published complete sheet music and score playback on MuseScore for public study"
+              data-modal-thumb="assets/images/soft-midi.webp"
+              data-youtube=""
+              data-ext-link="https://musescore.com/user/84059188/scores/18778012"
+              data-ext-label="View on MuseScore "
+              aria-label="Soft - MIDI - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/soft-midi.webp"
+                  alt="Soft - MIDI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Soft - MIDI</h3>
+                <p class="card__desc">
+                  Original expressive piano composition exploring contrasting
+                  light and dark harmonic tonalities.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Piano Composition</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+          </div>
+          <!-- /card-grid -->
+        </div>
+        <!-- /tab-panel: composing -->
+      </section>
+      <!-- /composition-section -->
+    </main>
+    <!-- /page-content -->
+
+    <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="footer-year"></span> Martin Nguyen. All rights
+        reserved.
+      </p>
+      <p>
+        <a href="about.html">About</a>
+        &nbsp;&middot;&nbsp;
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+
+    <!-- ================================================================
+       CARD MODAL
+       Populated dynamically by js/cards.js
+       ================================================================ -->
+    <div
+      class="modal-overlay"
+      id="card-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-box" id="modal-box">
+        <!-- Close button -->
+        <button class="modal-close" id="modal-close" aria-label="Close modal">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+
+        <!-- 2-column grid: media/actions left, structured info right -->
+        <div class="modal-grid">
+          <!-- Left: Media preview + action buttons -->
+          <div class="modal-video-col">
+            <div class="modal-video-wrap" id="modal-video-wrap">
+              <iframe
+                id="modal-iframe"
+                src=""
+                title="Project Video Player"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                allowfullscreen
+              ></iframe>
+              <img
+                id="modal-media-img"
+                class="modal-media-img"
+                src=""
+                alt="Project media preview"
+                style="display: none"
+              />
+            </div>
+
+            <!-- KEY CONTRIBUTIONS moved to left column -->
+            <div
+              class="modal-section"
+              style="
+                padding: 0 var(--space-lg) var(--space-lg);
+                margin-top: var(--space-lg);
+              "
+            >
+              <h3 class="modal-section-title">KEY CONTRIBUTIONS</h3>
+              <ul
+                class="modal-contributions-list"
+                id="modal-contributions"
+              ></ul>
+            </div>
+          </div>
+
+          <!-- Right: Title, Role, Platform, Overview, Key Contributions -->
+          <div class="modal-info-col">
+            <div class="modal-meta">
+              <span class="modal-tag" id="modal-tag"></span>
+              <span class="modal-date" id="modal-date"></span>
+            </div>
+            <h2 class="modal-heading" id="modal-title"></h2>
+
+            <!-- Spec rows -->
+            <div class="modal-specs">
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">ROLE</span>
+                <span class="modal-spec-val" id="modal-role"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">PLATFORM</span>
+                <span class="modal-spec-val" id="modal-platform"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">DISCIPLINE</span>
+                <span class="modal-spec-val" id="modal-discipline"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">TEAM SIZE</span>
+                <span class="modal-spec-val" id="modal-team"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">DURATION</span>
+                <span class="modal-spec-val" id="modal-duration"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="modal-spec-label">PROGRAMS</span>
+                <span class="modal-spec-val" id="modal-programs"></span>
+              </div>
+            </div>
+
+            <!-- Action links: YouTube watch + external project/download link -->
+            <div class="modal-actions">
+              <a
+                class="modal-yt-link"
+                id="modal-yt-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                Watch on YouTube
+              </a>
+              <a
+                class="modal-ext-link"
+                id="modal-ext-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display: none"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                  />
+                </svg>
+                <span id="modal-ext-text">View Project </span>
+              </a>
+            </div>
+
+            <!-- OVERVIEW section with accent line -->
+            <div class="modal-section">
+              <div class="modal-section-bar" aria-hidden="true"></div>
+              <h3 class="modal-section-title">OVERVIEW</h3>
+              <p class="modal-overview-text" id="modal-overview"></p>
+            </div>
+          </div>
+        </div>
+        <!-- /modal-grid -->
+      </div>
+      <!-- /modal-box -->
+    </div>
+    <!-- /card-modal -->
+
+    <!-- ================================================================
+       SCRIPTS - load order: effects then cards
+       ================================================================ -->
+    <script src="js/effects.js"></script>
+    <script src="js/cards.js"></script>
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

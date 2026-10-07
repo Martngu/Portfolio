@@ -1,0 +1,324 @@
+/* ==========================================================================
+   effects.css — Cursor Glow, Canvas Background Dots, Glint Animations
+   Portfolio: Martin Nguyen
+   ==========================================================================
+   TABLE OF CONTENTS
+   1.  Background Canvas
+   2.  Cursor Glow
+   3.  Card Glint (Surface Sweep) Keyframes
+   4.  Card Border Glow
+   5.  Card Reveal / Stagger Animations
+   6.  Scroll-triggered Fade In
+   ========================================================================== */
+
+
+/* ============================================================
+   1. BACKGROUND CANVAS
+      The <canvas id="bg-canvas"> element is injected by
+      effects.js and lives behind all page content.
+   ============================================================ */
+
+#bg-canvas {
+  position: fixed;  /* Stays in place while page scrolls */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;       /* Behind everything */
+  pointer-events: none; /* Never intercepts mouse events */
+  opacity: 0.75;
+}
+
+
+/* ============================================================
+   2. CURSOR GLOW
+      A large, soft radial gradient div that follows the cursor.
+      Injected by effects.js as #cursor-glow.
+   ============================================================ */
+
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Smaller radius than v1 — much more subtle */
+  width: 320px;
+  height: 320px;
+  margin-left: -160px;
+  margin-top: -160px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  /* Very low opacity — barely there, just a whisper of light */
+  background: radial-gradient(
+    circle at center,
+    rgba(127, 255, 0, 0.045) 0%,
+    rgba(127, 255, 0, 0.018) 40%,
+    transparent 68%
+  );
+  will-change: transform;
+  transition: opacity 0.4s ease;
+}
+
+/* Fade out the glow when cursor leaves the window */
+#cursor-glow.hidden {
+  opacity: 0;
+}
+
+
+/* ============================================================
+   3. CARD GLINT (SURFACE SWEEP) KEYFRAMES
+      A thin, bright diagonal highlight that sweeps left → right
+      across the card face on hover. Applied via a ::before
+      pseudo-element on .card (defined in cards.css).
+   ============================================================ */
+
+@keyframes glint-sweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(220%) skewX(-20deg); opacity: 0; }
+}
+
+/* Reusable utility class — add to any element that should glint */
+.glint-target {
+  position: relative;
+  overflow: hidden; /* Clip the pseudo-element sweep */
+}
+
+/* The actual sheen strip */
+.glint-target::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Thin diagonal band of semi-transparent white */
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.14) 52%,
+    rgba(255, 255, 255, 0.08) 54%,
+    transparent 64%
+  );
+  /* Start far off-screen left */
+  transform: translateX(-120%) skewX(-20deg);
+  /* Do NOT play on load — only on :hover trigger below */
+  animation: none;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* When the card is hovered, fire the sweep once */
+.glint-target:hover::before {
+  animation: glint-sweep 0.7s ease forwards;
+}
+
+
+/* ============================================================
+   4. CARD BORDER GLOW
+      Cards transition their border + box-shadow on hover to
+      produce a glowing edge in the accent colour.
+      The base border is defined in cards.css; these keyframes
+      handle the pulsing variation (optional, for "living" cards).
+   ============================================================ */
+
+@keyframes border-pulse {
+  0%, 100% { box-shadow: 0 0 0   2px rgba(127, 255, 0, 0.0),
+                          0 4px 24px rgba(0, 0, 0, 0.4); }
+  50%       { box-shadow: 0 0 14px 2px rgba(127, 255, 0, 0.25),
+                          0 4px 24px rgba(0, 0, 0, 0.4); }
+}
+
+/* Utility: add .border-pulse to a card for a continuous breathing glow */
+.border-pulse {
+  animation: border-pulse 2.4s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   5. CARD REVEAL / STAGGER ANIMATIONS
+      Cards start invisible and fly in when tab is activated.
+      JS adds the .is-visible class with staggered delays via
+      inline style="--stagger: N" per card.
+   ============================================================ */
+
+/* Initial hidden state — set before reveal */
+.card-stagger {
+  opacity: 0;
+  transform: translateY(24px);
+  /* Delay driven by CSS variable --stagger set by JS */
+  transition:
+    opacity   0.45s ease calc(var(--stagger, 0) * 80ms),
+    transform 0.45s ease calc(var(--stagger, 0) * 80ms);
+}
+
+/* Final revealed state — added by JS */
+.card-stagger.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Instant-reset helper — removes transition so swap is instant */
+.card-stagger.no-transition {
+  transition: none !important;
+}
+
+
+/* ============================================================
+   6. SCROLL-TRIGGERED FADE IN
+      Generic utility for any element that should animate in
+      once it enters the viewport. JS adds .in-view.
+   ============================================================ */
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity   0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-in-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for multiple siblings */
+.fade-in-up:nth-child(1) { transition-delay: 0ms;   }
+.fade-in-up:nth-child(2) { transition-delay: 80ms;  }
+.fade-in-up:nth-child(3) { transition-delay: 160ms; }
+.fade-in-up:nth-child(4) { transition-delay: 240ms; }
+.fade-in-up:nth-child(5) { transition-delay: 320ms; }
+.fade-in-up:nth-child(6) { transition-delay: 400ms; }
+
+
+/* ============================================================
+   7. EASTER EGG: POLYHEDRON ORB COLLECTOR
+   ============================================================ */
+
+.navbar__center-target {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 101;
+  user-select: none;
+}
+
+.target-shape-container {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polyhedron-svg {
+  width: 32px;
+  height: 32px;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 3px rgba(127, 255, 0, 0.25));
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease;
+  overflow: visible;
+}
+
+.navbar__center-target:hover .polyhedron-svg {
+  opacity: 0.8;
+  filter: drop-shadow(0 0 8px rgba(127, 255, 0, 0.5));
+  transform: rotate(8deg) scale(1.08);
+}
+
+/* Siri-style breathing aura — sits behind the SVG, purely circular */
+.siri-pulse-aura {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 255, 0, 0.10) 0%, transparent 70%);
+  opacity: 0;
+  animation: siri-breathe 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes siri-breathe {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  50%      { opacity: 0.8; transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* Subtle pulse feedback on collection — applied directly to SVG via filter */
+@keyframes orb-collected-glow {
+  0%   { filter: drop-shadow(0 0 3px rgba(127, 255, 0, 0.25)); transform: scale(1); }
+  40%  { filter: drop-shadow(0 0 14px rgba(127, 255, 0, 0.6)); transform: scale(1.12); }
+  100% { filter: drop-shadow(0 0 3px rgba(127, 255, 0, 0.25)); transform: scale(1); }
+}
+
+.polyhedron-svg.pulse-feedback {
+  animation: orb-collected-glow 0.45s ease-out;
+}
+
+/* Counter badge */
+.target-counter {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0;
+  letter-spacing: 0.05em;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(127, 255, 0, 0.4);
+}
+
+.target-counter.visible {
+  opacity: 1;
+}
+
+/* Secret reward button */
+.secret-reward-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #080808;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  box-shadow: 0 0 20px rgba(127, 255, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.secret-reward-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(127, 255, 0, 0.6);
+}
+
+.secret-reward-btn.hidden {
+  display: none;
+}
+
+@keyframes reward-pop {
+  0%   { opacity: 0; transform: scale(0.5) translateY(6px); }
+  70%  { transform: scale(1.1) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.secret-reward-btn.show {
+  display: inline-flex;
+  animation: reward-pop 0.5s ease-out forwards;
+}
+
+/* Hide easter egg on mobile (orbs are mouse-driven) */
+@media (max-width: 768px) {
+  .navbar__center-target { display: none; }
+}
+

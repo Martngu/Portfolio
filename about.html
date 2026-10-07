@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- ================================================================
+       META & SEO — About Page
+       ================================================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Martin Nguyen — Game Designer & UI/UX Specialist. Learn about my background, experience at Thales, and studies at Saxion University."
+    />
+    <meta
+      name="keywords"
+      content="Martin Nguyen, about, game designer, UI/UX, Thales, Saxion, Creative Media, Game Technologies"
+    />
+    <meta name="author" content="Martin Nguyen" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About — Martin Nguyen" />
+    <meta
+      property="og:description"
+      content="Game Designer & UI/UX Specialist. Background, skills, and experience."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mnportfolio.maevede.cc/about.html" />
+    <link rel="canonical" href="https://mnportfolio.maevede.cc/about.html" />
+
+    <title>About - Martin Nguyen</title>
+
+    <!-- Google Fonts: Inter (body) + Outfit, Plus Jakarta Sans & Space Grotesk (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+
+    <!-- ================================================================
+       ABOUT PAGE — Extra Styles (scoped to this page only)
+       ================================================================ -->
+    <style>
+      /* ---- About Hero: Single column (Profile Top, Timeline Below) ---- */
+      .about-hero {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+        padding-block: var(--space-xl) var(--space-lg);
+      }
+
+      /* Profile section top row */
+      .about-profile-section {
+        display: grid;
+        grid-template-columns: minmax(280px, 380px) 1fr;
+        gap: var(--space-xl);
+        align-items: start;
+        position: relative;
+        padding-bottom: var(--space-xl);
+      }
+
+      /* Profile image column */
+      .about-hero__image-col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      .about-hero__photo {
+        width: 100%;
+        position: relative;
+        filter: drop-shadow(0 0 32px rgba(127, 255, 0, 0.08));
+      }
+
+      .about-hero__photo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Right side: Bio + Stats */
+      .about-hero__bio-col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      /* Verbatim Odoo Bio Box */
+      .about-odoo-bio {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        font-size: 0.92rem;
+        line-height: 1.75;
+        color: #f0f4f8;
+        padding: var(--space-md) calc(var(--space-md) + 2px);
+        background: linear-gradient(
+          180deg,
+          rgba(127, 255, 0, 0.05) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
+        border: 1px solid rgba(127, 255, 0, 0.28);
+        border-radius: var(--radius-md);
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(127, 255, 0, 0.05);
+      }
+
+      .about-odoo-bio p {
+        margin: 0;
+        color: #e8ecef;
+      }
+
+      .about-odoo-bio .bio-neon {
+        color: var(--color-accent);
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(127, 255, 0, 0.35);
+      }
+
+      /* Quick-stats strip beside/below the photo */
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+      }
+
+      .about-stats__item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .about-stats__label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        text-shadow: 0 0 8px rgba(127, 255, 0, 0.3);
+      }
+
+      .about-stats__value {
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: #ffffff;
+      }
+
+      /* Download CV button */
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-top: auto;
+        padding: 12px 24px;
+        background: transparent;
+        color: var(--color-accent);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-accent);
+        transition:
+          background var(--transition-fast),
+          color var(--transition-fast),
+          box-shadow var(--transition-fast),
+          transform var(--transition-fast);
+        cursor: pointer;
+        width: fit-content;
+      }
+
+      .btn-download:hover {
+        background: var(--color-accent);
+        color: #080808;
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+      }
+
+      .btn-download svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      /* Scroll Indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: var(--color-text-muted);
+        font-size: 0.8rem;
+        animation: float 2s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+        50% {
+          transform: translate(-50%, 10px);
+        }
+      }
+
+      .scroll-indicator svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--color-accent);
+        opacity: 0.7;
+      }
+
+      /* ---- Text column: Experience Timeline ---- */
+      .about-hero__text-col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        width: 100%;
+      }
+
+      /* Work Experience Timeline */
+      .experience-timeline {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+        padding-left: 28px;
+        margin-top: var(--space-md);
+      }
+
+      /* Continuous vertical line */
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 10px;
+        bottom: 10px;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--color-accent) 0%,
+          rgba(127, 255, 0, 0.4) 60%,
+          rgba(255, 255, 255, 0.1) 100%
+        );
+        border-radius: 1px;
+      }
+
+      .timeline-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 20px;
+        border-radius: var(--radius-md);
+        transition:
+          background 0.5s ease,
+          box-shadow 0.5s ease;
+      }
+
+      .timeline-item.in-focus {
+        background: rgba(127, 255, 0, 0.03);
+        box-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.2),
+          inset 0 0 0 1px rgba(127, 255, 0, 0.1);
+      }
+
+      /* Glowing timeline node */
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -48px; /* Adjusted due to padding */
+        top: 26px; /* Adjusted due to padding */
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--color-bg);
+        border: 2px solid var(--color-accent);
+        box-shadow: 0 0 10px rgba(127, 255, 0, 0.5);
+        z-index: 1;
+        transition:
+          transform var(--transition-fast),
+          background var(--transition-fast);
+        animation: pulse-dot 2s infinite;
+      }
+
+      @keyframes pulse-dot {
+        0% {
+          box-shadow: 0 0 0 0 rgba(127, 255, 0, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(127, 255, 0, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(127, 255, 0, 0);
+        }
+      }
+
+      .timeline-item:hover::before {
+        transform: scale(1.2);
+        background: var(--color-accent);
+        animation: none;
+      }
+
+      .timeline-header {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .timeline-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+      }
+
+      .timeline-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: var(--font-heading);
+      }
+
+      .timeline-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .timeline-title a:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
+
+      .timeline-company {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        text-shadow: 0 0 10px rgba(127, 255, 0, 0.25);
+      }
+
+      .timeline-badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        background: var(--color-accent-dim);
+        border: 1px solid rgba(127, 255, 0, 0.3);
+      }
+
+      .timeline-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.8rem;
+        color: #b0b0b0;
+        font-family: var(--font-mono);
+      }
+
+      .timeline-body {
+        font-size: 0.92rem;
+        color: #e2e8f0;
+        line-height: 1.7;
+        margin-top: 4px;
+      }
+
+      .timeline-image {
+        margin-top: var(--space-md);
+        width: 100%;
+        max-width: 600px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(127, 255, 0, 0.2);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      .timeline-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .timeline-bullets li {
+        position: relative;
+        padding-left: 18px;
+        font-size: 0.9rem;
+        color: #e8ecef;
+        line-height: 1.65;
+      }
+
+      .timeline-bullets li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--color-accent);
+        font-weight: 700;
+        text-shadow: 0 0 8px rgba(127, 255, 0, 0.4);
+      }
+
+      /* Responsive */
+      @media (max-width: 860px) {
+        .about-profile-section {
+          grid-template-columns: 1fr;
+        }
+        .about-hero__photo {
+          max-width: 280px;
+          margin-inline: auto;
+        }
+        .timeline-item::before {
+          left: -48px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================================================================
+       SOCIAL SIDEBAR (same as index.html — keep in sync)
+       ================================================================ -->
+    <aside class="social-sidebar" aria-label="Social media links">
+      <ul>
+        <li>
+          <a
+            class="social-sidebar__link"
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            class="social-sidebar__link"
+            href="https://github.com/Martngu"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+    <header>
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="navbar__brand" href="index.html"
+          >Martin <span>Nguyen</span></a
+        >
+
+        <!-- Navbar Center: Interactive Polyhedron Easter Egg Target -->
+        <div class="navbar__center-target" id="easter-egg-target" aria-label="Orb Collector Mini-Game" title="Guide neon orbs here with your mouse!">
+          <div class="target-shape-container">
+            <div class="siri-pulse-aura"></div>
+            <svg class="polyhedron-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="polyGrad1_about" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7fff00" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#005500" stop-opacity="0.3"/>
+                </linearGradient>
+                <linearGradient id="polyGrad2_about" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#003300" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <polygon points="50,5 78,20 66,45 34,45 22,20" fill="url(#polyGrad1_about)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="50,5 78,20 95,45 78,70 50,55" fill="url(#polyGrad2_about)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="78,20 95,45 66,45" fill="url(#polyGrad1_about)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="22,20 34,45 5,45" fill="url(#polyGrad2_about)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="22,20 50,5 5,45 22,70" fill="url(#polyGrad1_about)" stroke="#7fff00" stroke-width="1.2"/>
+              <polygon points="34,45 66,45 78,70 50,95 22,70" fill="url(#polyGrad2_about)" stroke="#7fff00" stroke-width="1.5"/>
+              <polygon points="5,45 22,70 34,95 50,95" fill="url(#polyGrad1_about)" stroke="#7fff00" stroke-width="1"/>
+              <polygon points="95,45 78,70 66,95 50,95" fill="url(#polyGrad2_about)" stroke="#7fff00" stroke-width="1"/>
+              <circle cx="50" cy="5" r="2.5" fill="#7fff00"/>
+              <circle cx="78" cy="20" r="2.5" fill="#7fff00"/>
+              <circle cx="22" cy="20" r="2.5" fill="#7fff00"/>
+              <circle cx="66" cy="45" r="2.5" fill="#7fff00"/>
+              <circle cx="34" cy="45" r="2.5" fill="#7fff00"/>
+              <circle cx="50" cy="55" r="2.5" fill="#7fff00"/>
+              <circle cx="78" cy="70" r="2.5" fill="#7fff00"/>
+              <circle cx="22" cy="70" r="2.5" fill="#7fff00"/>
+              <circle cx="50" cy="95" r="2.5" fill="#7fff00"/>
+            </svg>
+          </div>
+          <span class="target-counter" id="easter-egg-counter">0/10</span>
+          <a class="secret-reward-btn hidden" id="secret-reward-btn" href="https://www.youtube.com/watch?v=w7x_lWJNnNg" target="_blank" rel="noopener noreferrer">
+            🎉 You found a little secret! ↗
+          </a>
+        </div>
+
+        <ul class="navbar__links" role="list">
+          <li><a class="navbar__link" href="index.html">Home</a></li>
+          <li>
+            <a class="navbar__link active" href="about.html" aria-current="page"
+              >About</a
+            >
+          </li>
+          <li><a class="navbar__link" href="contact.html">Contact</a></li>
+        </ul>
+        <button
+          class="navbar__hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div
+          class="navbar__mobile-menu"
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <ul role="list">
+            <li><a class="navbar__link" href="index.html">Home</a></li>
+            <li><a class="navbar__link" href="about.html">About</a></li>
+            <li><a class="navbar__link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ================================================================
+       MAIN CONTENT — ABOUT PAGE
+       ================================================================ -->
+    <main class="page-content">
+      <!-- Page heading -->
+      <section
+        class="container section"
+        style="padding-top: var(--space-md); padding-bottom: 0"
+      >
+        <span class="text-label fade-in-up">About Me</span>
+        <h1 class="text-h1 fade-in-up" style="margin-top: var(--space-sm)">
+          Background &amp;<br />Experience.
+        </h1>
+      </section>
+
+      <div
+        class="section-divider container"
+        role="separator"
+        aria-hidden="true"
+      ></div>
+
+      <!-- ============================================================
+         ABOUT HERO — Top: Profile Section | Bottom: Experience Timeline
+         ============================================================ -->
+      <section class="about-hero container" aria-label="My background">
+        <!-- TOP ROW: Profile Photo + Bio/Stats -->
+        <div class="about-profile-section fade-in-up">
+          <div class="about-hero__image-col">
+            <!-- Profile Photo -->
+            <div class="about-hero__photo" aria-label="Profile photo">
+              <img
+                src="assets/images/profile.jpg"
+                alt="Martin Nguyen — profile photo"
+                width="600"
+                height="800"
+              />
+            </div>
+          </div>
+
+          <div class="about-hero__bio-col">
+            <!-- Verbatim Odoo About Me -->
+            <div class="about-odoo-bio">
+              <p>
+                <span class="bio-neon">Hi! I'm Martin,</span> a fourth (and
+                final)-year Creative Media &amp; Game Technologies student at
+                Saxion University.
+              </p>
+              <p>
+                My primary focus is about
+                <span class="bio-neon">game design and audio designer</span>,
+                aside from this I'm also very passionate about
+                <span class="bio-neon">composing music</span> in my free time! I
+                love creating immersive soundscapes and engaging gameplay
+                experiences, while keeping smooth and intuitive user interfaces
+                that enhances the overall player experience. I love working in
+                team environments, enjoy finding creative solutions, and am
+                comfortable working independently as well.
+              </p>
+              <p>
+                Outside of university, I enjoy taking walks, reading, gaming,
+                and playing badminton.
+              </p>
+            </div>
+
+            <!-- Quick-stats strip -->
+            <div class="about-stats">
+              <div class="about-stats__item">
+                <span class="about-stats__label">Role</span>
+                <span class="about-stats__value"
+                  >Game Designer &amp; audio designer</span
+                >
+              </div>
+
+              <div class="about-stats__item">
+                <span class="about-stats__label">Location</span>
+                <span class="about-stats__value">The Netherlands</span>
+              </div>
+
+              <div class="about-stats__item">
+                <span class="about-stats__label">Education</span>
+                <span class="about-stats__value"
+                  >Creative Media &amp; Game Technologies — Saxion</span
+                >
+              </div>
+
+              <div class="about-stats__item">
+                <span class="about-stats__label">Status</span>
+                <span class="about-stats__value"
+                  >Final year student, open to opportunities</span
+                >
+              </div>
+            </div>
+            <!-- /about-stats -->
+
+            <!-- Download CV button -->
+            <a
+              class="btn-download"
+              href="cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download my CV (PDF)"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+              </svg>
+              Download CV
+            </a>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator">
+            Scroll
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- /about-profile-section -->
+
+        <!-- FULL WIDTH: Work Experience Timeline -->
+        <div class="about-hero__text-col fade-in-up">
+          <div>
+            <span class="text-label">Career Journey</span>
+            <h2 class="text-h2" style="margin-top: var(--space-xs)">
+              Work Experience
+            </h2>
+          </div>
+
+          <!-- Timeline container -->
+          <div class="experience-timeline">
+            <!-- TIMELINE ITEM 1: Copenhagen Exchange Program -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-title-row">
+                  <h3 class="timeline-title">Digital Product Development</h3>
+                  <span class="timeline-badge">Erasmus Exchange</span>
+                </div>
+                <span class="timeline-company"
+                  >Copenhagen Erasmus Exchange Program</span
+                >
+                <div class="timeline-meta">
+                  <span>Copenhagen, Denmark</span>
+                  <span>&#183;</span>
+                  <span>2026 (2nd Semester)</span>
+                </div>
+              </div>
+              <p class="timeline-body">
+                Intensive international exchange program focused on rapid
+                digital product prototyping, sprint methodology, and creative
+                problem solving in multidisciplinary teams.
+              </p>
+              <ul class="timeline-bullets">
+                <li>
+                  Learned about high-intensity 5-day google design sprint
+                  methods, and applying more music theory knowledge in
+                  arrangements Ableton Live, whilst learning new techniques.
+                </li>
+                <li>
+                  Collaborated with international developers and designers on
+                  rapid digital media prototypes such as websites with usage of
+                  AI.
+                </li>
+              </ul>
+              <img
+                src="assets/images/portdo da lua EK.PNG"
+                alt="Porto da Lua project overview"
+                class="timeline-image"
+              />
+            </div>
+
+            <!-- TIMELINE ITEM 2: Thales Group -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-title-row">
+                  <h3 class="timeline-title">
+                    <a
+                      href="https://www.youtube.com/watch?v=9mTBeol3GdE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Lead Game Designer &amp; UX</a
+                    >
+                  </h3>
+                  <span class="timeline-badge">Internship</span>
+                </div>
+                <span class="timeline-company">Thales Group</span>
+                <div class="timeline-meta">
+                  <span>Hengelo, Overijssel, Netherlands</span>
+                  <span>&#183;</span>
+                  <span>2026 (1st Semester)</span>
+                </div>
+              </div>
+              <p class="timeline-body">
+                Level design, game mechanics and UX systems for
+                <em>Naval Warfare</em>, a tactical serious simulation game
+                modeling authentic naval combat doctrines and tactical radar
+                decision loops.
+              </p>
+              <ul class="timeline-bullets">
+                <li>
+                  Led a 3-person development team across a 6-month agile
+                  production cycle.
+                </li>
+                <li>
+                  Designed, and documented tactical radar intelligence
+                  gathering, countermeasure flare systems, missile strike
+                  mechanics, and main gameplay loop.
+                </li>
+                <li>
+                  Designed full high-fidelity wireframes, tactical radar
+                  screens, command HUD displays, and interaction design flows in
+                  Figma.
+                </li>
+                <li>
+                  Facilitated Agile/Scrum routines including sprint planning,
+                  daily standups, backlog refinement, and sprint poker
+                  estimation with domain experts and software engineers.
+                </li>
+              </ul>
+              <img
+                src="assets/images/Thales timeline .PNG"
+                alt="Thales project overview"
+                class="timeline-image"
+              />
+            </div>
+
+            <!-- TIMELINE ITEM 3: Saxion University -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-title-row">
+                  <h3 class="timeline-title">
+                    Creative Media &amp; Game Technologies
+                  </h3>
+                  <span class="timeline-badge">B.Sc. Degree</span>
+                </div>
+                <span class="timeline-company"
+                  >Saxion University of Applied Sciences</span
+                >
+                <div class="timeline-meta">
+                  <span>Enschede, Netherlands</span>
+                  <span>&#183;</span>
+                  <span>2021 &ndash; 2027</span>
+                </div>
+              </div>
+              <p class="timeline-body">
+                Specializing in game systems design, UX interaction, and
+                interactive audio and composing music. Completed multiple games
+                projects from concept to final polish.
+              </p>
+              <ul class="timeline-bullets">
+                <li>
+                  Designed player-centric mechanics, level layouts, progression
+                  curves, and game feel for projects including
+                  <em>Sea Critters</em> and <em>Bentelo butchers</em>.
+                </li>
+                <li>
+                  Composed original adaptive soundtracks and atmospheric
+                  soundscapes in Ableton Live, integrating audio closely with
+                  interactive gameplay loops.
+                </li>
+              </ul>
+              <img
+                src="assets/images/header-cmgt-creative-media-and-game-technologies.webp"
+                alt="Creative Media & Game Technologies"
+                class="timeline-image"
+              />
+            </div>
+          </div>
+
+          <!-- /experience-timeline -->
+        </div>
+        <!-- /about-hero__text-col -->
+      </section>
+      <!-- /about-hero -->
+    </main>
+    <!-- /page-content -->
+
+    <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="footer-year"></span> Martin Nguyen. All rights
+        reserved.
+      </p>
+      <p>
+        <a href="index.html">Home</a>
+        &nbsp;·&nbsp;
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/effects.js"></script>
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      // Intersection Observer for Timeline Items
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-focus");
+              } else {
+                entry.target.classList.remove("in-focus");
+              }
+            });
+          },
+          {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", // triggers when item is around center
+            threshold: 0,
+          },
+        );
+
+        document.querySelectorAll(".timeline-item").forEach((item) => {
+          observer.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>
