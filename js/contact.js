@@ -171,13 +171,12 @@
       submitBtn.textContent = 'Sending…';
 
       /* ------------------------------------------------------------
-         REAL EMAIL SUBMISSION via Formspree
-         Replace YOUR_FORMSPREE_ID with your Formspree form ID.
-         Sign up free at https://formspree.io/ to get your ID!
+         LIVE EMAIL SUBMISSION via FormSubmit
+         Sends submissions directly to maeve.create@gmail.com
       ------------------------------------------------------------ */
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+      const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/maeve.create@gmail.com';
 
-      fetch(FORMSPREE_ENDPOINT, {
+      fetch(EMAIL_ENDPOINT, {
         method: 'POST',
         body: new FormData(form),
         headers: {
@@ -199,7 +198,7 @@
           }, 400);
         } else {
           return response.json().then(function (data) {
-            throw new Error(data.error || 'Submission failed');
+            throw new Error(data.message || 'Submission failed');
           });
         }
       })
