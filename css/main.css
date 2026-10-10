@@ -706,6 +706,63 @@ input, textarea, select {
 
 .site-footer a:hover { opacity: 0.7; }
 
+/* ---- Footer & Mobile Menu Social Links ---- */
+.footer-socials,
+.mobile-menu-socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer-socials a,
+.mobile-menu-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.footer-socials a:hover,
+.mobile-menu-socials a:hover {
+  color: var(--color-accent);
+  border-color: rgba(127, 255, 0, 0.4);
+  box-shadow: 0 0 12px rgba(127, 255, 0, 0.25);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.footer-socials a svg,
+.mobile-menu-socials a svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.mobile-menu-socials {
+  margin-top: var(--space-md);
+  gap: var(--space-md);
+}
+
+.mobile-menu-socials a {
+  width: 44px;
+  height: 44px;
+}
+
+.mobile-menu-socials a svg {
+  width: 22px;
+  height: 22px;
+}
+
 
 /* ============================================================
    10. RESPONSIVE / MOBILE
