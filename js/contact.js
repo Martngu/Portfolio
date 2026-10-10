@@ -170,21 +170,44 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      /* Fake network delay */
-      setTimeout(function () {
-        /* Hide form & show success message */
-        form.style.opacity = '0';
-        form.style.transform = 'translateY(-12px)';
-        form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      /* ------------------------------------------------------------
+         REAL EMAIL SUBMISSION via Formspree
+         Replace YOUR_FORMSPREE_ID with your Formspree form ID.
+         Sign up free at https://formspree.io/ to get your ID!
+      ------------------------------------------------------------ */
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
 
-        setTimeout(function () {
-          form.style.display = 'none';
-          if (successEl) {
-            successEl.classList.add('visible');
-          }
-        }, 400);
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(function (response) {
+        if (response.ok) {
+          /* Hide form & show success message */
+          form.style.opacity = '0';
+          form.style.transform = 'translateY(-12px)';
+          form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
-      }, 1200 /* ms simulated delay */);
+          setTimeout(function () {
+            form.style.display = 'none';
+            if (successEl) {
+              successEl.classList.add('visible');
+            }
+          }, 400);
+        } else {
+          return response.json().then(function (data) {
+            throw new Error(data.error || 'Submission failed');
+          });
+        }
+      })
+      .catch(function (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('There was a problem sending your message. Please email directly to maeve.create@gmail.com or try again.');
+      });
     });
 
     attachBlurValidation();
