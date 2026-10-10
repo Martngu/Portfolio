@@ -128,8 +128,9 @@
   let mExtLink       = null;
   let mExtText       = null;
   let mClose         = null;
-  let mDuration    = null;
-  let mPrograms    = null;
+  let mDuration      = null;
+  let mPrograms      = null;
+  let mContribTitle  = null;
 
   function cacheModalRefs() {
     modal          = document.getElementById('card-modal');
@@ -143,6 +144,7 @@
     mPlatform      = document.getElementById('modal-platform');
     mOverview      = document.getElementById('modal-overview');
     mContributions = document.getElementById('modal-contributions');
+    mContribTitle  = document.getElementById('modal-contributions-title');
     mVideoWrap     = document.getElementById('modal-video-wrap');
     mIframe        = document.getElementById('modal-iframe');
     mMediaImg      = document.getElementById('modal-media-img');
@@ -204,7 +206,15 @@
     /* Populate OVERVIEW */
     if (mOverview) mOverview.textContent = overview;
 
-    /* Populate KEY CONTRIBUTIONS — highlight program names */
+    /* Dynamic section header: EXPERIENCE for skills, KEY CONTRIBUTIONS for projects */
+    const isSkillCard = card.closest('#panel-skillset') !== null ||
+                        (card.querySelector('.card__date')?.textContent || '').toLowerCase().includes('skill') ||
+                        (card.dataset.modalTag || '').toLowerCase().includes('skill');
+    if (mContribTitle) {
+      mContribTitle.textContent = isSkillCard ? 'EXPERIENCE' : 'KEY CONTRIBUTIONS';
+    }
+
+    /* Populate KEY CONTRIBUTIONS / EXPERIENCE list — highlight program names */
     if (mContributions) {
       mContributions.innerHTML = '';
       const items = contribStr ? contribStr.split('|') : [];

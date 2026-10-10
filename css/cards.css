@@ -21,7 +21,7 @@
    ============================================================ */
 
 .composition-section {
-  padding-block: var(--space-xl) var(--space-2xl);
+  padding-block: var(--space-lg) var(--space-2xl);
   position: relative;
   z-index: 1;
 }
