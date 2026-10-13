@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <!-- ================================================================
@@ -161,41 +161,108 @@
         </a>
 
         <!-- Navbar Center: Interactive Polyhedron Easter Egg Target -->
-        <div class="navbar__center-target" id="easter-egg-target" aria-label="Orb Collector Mini-Game" title="Guide neon orbs here with your mouse!">
+        <div
+          class="navbar__center-target"
+          id="easter-egg-target"
+          aria-label="Orb Collector Mini-Game"
+          title="Guide neon orbs here with your mouse!"
+        >
           <div class="target-shape-container">
             <div class="siri-pulse-aura"></div>
-            <svg class="polyhedron-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="polyhedron-svg"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <defs>
-                <linearGradient id="polyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#7fff00" stop-opacity="0.7"/>
-                  <stop offset="100%" stop-color="#005500" stop-opacity="0.3"/>
+                <linearGradient
+                  id="polyGrad1"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#7fff00" stop-opacity="0.7" />
+                  <stop offset="100%" stop-color="#005500" stop-opacity="0.3" />
                 </linearGradient>
-                <linearGradient id="polyGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#003300" stop-opacity="0.2"/>
+                <linearGradient
+                  id="polyGrad2"
+                  x1="100%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6" />
+                  <stop offset="100%" stop-color="#003300" stop-opacity="0.2" />
                 </linearGradient>
               </defs>
-              <polygon points="50,5 78,20 66,45 34,45 22,20" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1.2"/>
-              <polygon points="50,5 78,20 95,45 78,70 50,55" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1.2"/>
-              <polygon points="78,20 95,45 66,45" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1"/>
-              <polygon points="22,20 34,45 5,45" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1"/>
-              <polygon points="22,20 50,5 5,45 22,70" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1.2"/>
-              <polygon points="34,45 66,45 78,70 50,95 22,70" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1.5"/>
-              <polygon points="5,45 22,70 34,95 50,95" fill="url(#polyGrad1)" stroke="#7fff00" stroke-width="1"/>
-              <polygon points="95,45 78,70 66,95 50,95" fill="url(#polyGrad2)" stroke="#7fff00" stroke-width="1"/>
-              <circle cx="50" cy="5" r="2.5" fill="#7fff00"/>
-              <circle cx="78" cy="20" r="2.5" fill="#7fff00"/>
-              <circle cx="22" cy="20" r="2.5" fill="#7fff00"/>
-              <circle cx="66" cy="45" r="2.5" fill="#7fff00"/>
-              <circle cx="34" cy="45" r="2.5" fill="#7fff00"/>
-              <circle cx="50" cy="55" r="2.5" fill="#7fff00"/>
-              <circle cx="78" cy="70" r="2.5" fill="#7fff00"/>
-              <circle cx="22" cy="70" r="2.5" fill="#7fff00"/>
-              <circle cx="50" cy="95" r="2.5" fill="#7fff00"/>
+              <polygon
+                points="50,5 78,20 66,45 34,45 22,20"
+                fill="url(#polyGrad1)"
+                stroke="#7fff00"
+                stroke-width="1.2"
+              />
+              <polygon
+                points="50,5 78,20 95,45 78,70 50,55"
+                fill="url(#polyGrad2)"
+                stroke="#7fff00"
+                stroke-width="1.2"
+              />
+              <polygon
+                points="78,20 95,45 66,45"
+                fill="url(#polyGrad1)"
+                stroke="#7fff00"
+                stroke-width="1"
+              />
+              <polygon
+                points="22,20 34,45 5,45"
+                fill="url(#polyGrad2)"
+                stroke="#7fff00"
+                stroke-width="1"
+              />
+              <polygon
+                points="22,20 50,5 5,45 22,70"
+                fill="url(#polyGrad1)"
+                stroke="#7fff00"
+                stroke-width="1.2"
+              />
+              <polygon
+                points="34,45 66,45 78,70 50,95 22,70"
+                fill="url(#polyGrad2)"
+                stroke="#7fff00"
+                stroke-width="1.5"
+              />
+              <polygon
+                points="5,45 22,70 34,95 50,95"
+                fill="url(#polyGrad1)"
+                stroke="#7fff00"
+                stroke-width="1"
+              />
+              <polygon
+                points="95,45 78,70 66,95 50,95"
+                fill="url(#polyGrad2)"
+                stroke="#7fff00"
+                stroke-width="1"
+              />
+              <circle cx="50" cy="5" r="2.5" fill="#7fff00" />
+              <circle cx="78" cy="20" r="2.5" fill="#7fff00" />
+              <circle cx="22" cy="20" r="2.5" fill="#7fff00" />
+              <circle cx="66" cy="45" r="2.5" fill="#7fff00" />
+              <circle cx="34" cy="45" r="2.5" fill="#7fff00" />
+              <circle cx="50" cy="55" r="2.5" fill="#7fff00" />
+              <circle cx="78" cy="70" r="2.5" fill="#7fff00" />
+              <circle cx="22" cy="70" r="2.5" fill="#7fff00" />
+              <circle cx="50" cy="95" r="2.5" fill="#7fff00" />
             </svg>
           </div>
           <span class="target-counter" id="easter-egg-counter">0/10</span>
-          <a class="secret-reward-btn hidden" id="secret-reward-btn" href="https://www.youtube.com/watch?v=w7x_lWJNnNg" target="_blank" rel="noopener noreferrer">
+          <a
+            class="secret-reward-btn hidden"
+            id="secret-reward-btn"
+            href="https://www.youtube.com/watch?v=w7x_lWJNnNg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             🎉 You found a little secret! ↗
           </a>
         </div>
@@ -244,7 +311,11 @@
               aria-label="LinkedIn profile"
               title="LinkedIn"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+                />
+              </svg>
             </a>
             <a
               href="https://github.com/Martngu"
@@ -253,7 +324,11 @@
               aria-label="GitHub profile"
               title="GitHub"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
             </a>
           </div>
         </div>
@@ -405,26 +480,61 @@
           aria-labelledby="tab-projects"
         >
           <div class="card-grid">
-            <!-- ---- PROJECT CARD 1 ---- -->
-            <!--
-            HOW TO EDIT A PROJECT CARD:
-            1. Change data-link to the URL of your project page or itch.io
-            2. Replace the .card__thumb-label text with a short tag
-            3. Update .card__title with the project name
-            4. Update .card__desc with a 1-2 sentence description
-            5. Change the .card__tag text (genre / platform)
-            6. To add a real thumbnail:
-               - Put the image in assets/images/
-               - Add inside .card__thumb:
-                 <img class="card__thumb-img" src="assets/images/proj1.jpg" alt="..." />
-               - Remove the .card__thumb-label span
-          -->
-            <!-- ---- PROJECT 1: Thales - Naval warfare ---- -->
+            <!-- ---- PROJECT 1: Porto da Lua (2026 — latest) ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Porto da Lua - UX Research & Web Design"
+              data-modal-tag="UX Research / Web Design"
+              data-modal-date="2026"
+              data-modal-role="Team &amp; Scrum Leader"
+              data-modal-platform="Web (HTML / CSS / AI)"
+              data-modal-overview="Conducted UX research and designed/created a website using AI based on our design findings. Led a team of 4 through the full research and design process as part of the EK project."
+              data-modal-contributions="Led a 4-person team through user research, ideation, and web design using Figma|Conducted comprehensive UX research including user interviews and usability testing|Designed and built a responsive website using Antigravity, integrating AI-generated content|Presented final deliverables and research outcomes to stakeholders"
+              data-modal-thumb="assets/images/portdo da lua EK.PNG"
+              data-modal-team="4"
+              data-modal-duration="2 Weeks"
+              data-modal-programs="Figma, Antigravity"
+              data-youtube=""
+              data-ext-link="https://martngu.github.io/Improved-porto/activities.html"
+              data-ext-label="View Project "
+              aria-label="Porto da Lua - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/portdo da lua EK.PNG"
+                  alt="Porto da Lua UX Research project"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Porto da Lua</h3>
+                <p class="card__desc">
+                  UX research and AI-based website design for the EK project,
+                  leading a team of 4.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Team &amp; Scrum Leader</span>
+                  <span class="card__date">[Date: 2026]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 2: Thales - Naval warfare (2025-2026) ---- -->
             <article
               class="card card--project glint-target card-stagger"
               data-modal-title="Thales - Naval warfare"
               data-modal-tag="Game Design · UI/UX"
-              data-modal-date="2023 - 2024"
+              data-modal-date="2025 - 2026"
               data-modal-role="Lead Game Designer & UI/UX (Internship)"
               data-modal-platform="PC / Tactical Simulation"
               data-modal-overview="Naval warfare is a strategy realism game inspired by Thales and how they operate naval missions in real life. The game simulates realistic tactical scenarios where information superiority dictates fleet survival. Players deploy reconnaissance ships, gather sensor intelligence to uncover enemy locations, launch coordinated missile strikes, and deploy defensive countermeasure flares to survive incoming barrages."
@@ -468,12 +578,61 @@
               </svg>
             </article>
 
-            <!-- ---- PROJECT 2: Bentelo butcher ---- -->
+            <!-- ---- PROJECT 3: Music Dash (2025) ---- -->
+            <article
+              class="card card--project glint-target card-stagger"
+              data-modal-title="Music Dash - FMOD, Game design & Audio"
+              data-modal-tag="Audio Design · Composition"
+              data-modal-date="2025"
+              data-modal-role="Music Composer & Audio Gameplay Designer"
+              data-modal-platform="PC / Standalone"
+              data-modal-overview="In this collaborative prototype project, I created the complete musical score and collaborated with a teammate to build a game mechanic revolving directly around musical beats. I orchestrated dynamic tracks with distinct rhythmic cues engineered specifically for real-time obstacle synchronization."
+              data-modal-contributions="Composed original high-energy rhythm soundtracks from scratch using Ableton Live 12|Designed obstacle spawn patterns synchronized to track BPM and percussion transients"
+              data-modal-thumb="assets/images/music-dash.svg"
+              data-modal-team="2"
+              data-modal-duration="4 Weeks"
+              data-modal-programs="Ableton Live 12"
+              data-youtube="jcvyy2iaSkc"
+              data-ext-link="https://maeve-create.itch.io/music-dash"
+              data-ext-label="Download on Itch.io "
+              aria-label="Music Dash - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/music-dash.svg"
+                  alt="Music Dash gameplay graphic"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Music Dash</h3>
+                <p class="card__desc">
+                  Rhythm prototype game with custom orchestrated musical beats
+                  and synchronized FMOD audio mechanics.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Composer & Audio Designer</span>
+                  <span class="card__date">[Date: 2025]</span>
+                </div>
+              </div>
+              <svg
+                class="card__link-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
+                />
+              </svg>
+            </article>
+
+            <!-- ---- PROJECT 4: Bentelo butcher (2025) ---- -->
             <article
               class="card card--project glint-target card-stagger"
               data-modal-title="Bentelo butcher - UI, Mechanics & Game design"
               data-modal-tag="Game Design · UI/UX"
-              data-modal-date="2023"
+              data-modal-date="2025"
               data-modal-role="Game Designer & UI/UX Lead"
               data-modal-platform="PC (Windows)"
               data-modal-overview="Project Show-Off was an intensive 3 months assignment developed by a 7-person team. Together, we made a first-person atmospheric horror game grounded in a regional folklore myth originating from Overijssel. The game weaves eerie environments, integrated logic puzzles, and narrative pacing to keep players immersed in dread."
@@ -517,12 +676,12 @@
               </svg>
             </article>
 
-            <!-- ---- PROJECT 3: City Bash ---- -->
+            <!-- ---- PROJECT 5: City Bash (2024) ---- -->
             <article
               class="card card--project glint-target card-stagger"
               data-modal-title="City Bash - UI, Mechanics & Level design"
               data-modal-tag="Level Design · Mechanics"
-              data-modal-date="2023"
+              data-modal-date="2024"
               data-modal-role="Level Designer & Mechanics Designer"
               data-modal-platform="Mobile (Android / iOS)"
               data-modal-overview="Developed during Project Innovation with a 6-person team, the objective was creating a mobile game taking creative advantage of unique hardware capabilities. We utilized the smartphone's internal gyroscope to deliver intuitive, physical motion-steered driving and high-velocity urban destruction."
@@ -552,7 +711,7 @@
                 </p>
                 <div class="card__meta">
                   <span class="card__tag">Level & Mechanics Designer</span>
-                  <span class="card__date">[Date: 2024W]</span>
+                  <span class="card__date">[Date: 2024]</span>
                 </div>
               </div>
               <svg
@@ -566,56 +725,7 @@
               </svg>
             </article>
 
-            <!-- ---- PROJECT 4: Music Dash ---- -->
-            <article
-              class="card card--project glint-target card-stagger"
-              data-modal-title="Music Dash - FMOD, Game design & Audio"
-              data-modal-tag="Audio Design · Composition"
-              data-modal-date="2023"
-              data-modal-role="Music Composer & Audio Gameplay Designer"
-              data-modal-platform="PC / Standalone"
-              data-modal-overview="In this collaborative prototype project, I created the complete musical score and collaborated with a teammate to build a game mechanic revolving directly around musical beats. I orchestrated dynamic tracks with distinct rhythmic cues engineered specifically for real-time obstacle synchronization."
-              data-modal-contributions="Composed original high-energy rhythm soundtracks from scratch using Ableton Live 12|Designed obstacle spawn patterns synchronized to track BPM and percussion transients"
-              data-modal-thumb="assets/images/music-dash.svg"
-              data-modal-team="2"
-              data-modal-duration="4 Weeks"
-              data-modal-programs="Ableton Live 12"
-              data-youtube="jcvyy2iaSkc"
-              data-ext-link="https://maeve-create.itch.io/music-dash"
-              data-ext-label="Download on Itch.io "
-              aria-label="Music Dash - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/music-dash.svg"
-                  alt="Music Dash gameplay graphic"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Music Dash</h3>
-                <p class="card__desc">
-                  Rhythm prototype game with custom orchestrated musical beats
-                  and synchronized FMOD audio mechanics.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Composer & Audio Designer</span>
-                  <span class="card__date">[Date: 2023]</span>
-                </div>
-              </div>
-              <svg
-                class="card__link-icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
-                />
-              </svg>
-            </article>
-
-            <!-- ---- PROJECT 5: Sea Critters ---- -->
+            <!-- ---- PROJECT 6: Sea Critters (2024) ---- -->
             <article
               class="card card--project glint-target card-stagger"
               data-modal-title="Sea Critters - UI/UX & Mechanics"
@@ -664,7 +774,7 @@
               </svg>
             </article>
 
-            <!-- ---- PROJECT 7: Swing it ---- -->
+            <!-- ---- PROJECT 7: Swing it (2023 — oldest) ---- -->
             <article
               class="card card--project glint-target card-stagger"
               data-modal-title="Swing it - Tiled & Level design"
@@ -712,56 +822,6 @@
                 />
               </svg>
             </article>
-
-            <!-- ---- PROJECT 8: Porto da Lua ---- -->
-            <article
-              class="card card--project glint-target card-stagger"
-              data-modal-title="Porto da Lua - UX Research & Web Design"
-              data-modal-tag="UX Research / Web Design"
-              data-modal-date="2026"
-              data-modal-role="Team &amp; Scrum Leader"
-              data-modal-platform="Web (HTML / CSS / AI)"
-              data-modal-overview="Conducted UX research and designed/created a website using AI based on our design findings. Led a team of 4 through the full research and design process as part of the EK project."
-              data-modal-contributions="Led a 4-person team through user research, ideation, and web design using Figma|Conducted comprehensive UX research including user interviews and usability testing|Designed and built a responsive website using Antigravity, integrating AI-generated content|Presented final deliverables and research outcomes to stakeholders"
-              data-modal-thumb="assets/images/portdo da lua EK.PNG"
-              data-modal-team="4"
-              data-modal-duration="2 Weeks"
-              data-modal-programs="Figma, Antigravity"
-              data-youtube=""
-              data-ext-link="https://martngu.github.io/Improved-porto/activities.html"
-              data-ext-label="View Project "
-              aria-label="Porto da Lua - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/portdo da lua EK.PNG"
-                  alt="Porto da Lua UX Research project"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Porto da Lua</h3>
-                <p class="card__desc">
-                  UX research and AI-based website design for the EK project,
-                  leading a team of 4.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Team &amp; Scrum Leader</span>
-                  <span class="card__date">[Date: 2026]</span>
-                </div>
-              </div>
-              <svg
-                class="card__link-icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M14 3h7v7l-2-2-7 7-2-2 7-7-3-3zm-11 16V5h7v2H5v12h12v-6h2v8H3z"
-                />
-              </svg>
-            </article>
-          </div>
           <!-- /card-grid -->
         </div>
         <!-- /tab-panel: projects -->
@@ -1118,7 +1178,8 @@
               <div class="card__body">
                 <h3 class="card__title">Antigravity</h3>
                 <p class="card__desc">
-                  Comfortable using Antigravity to build and launch full-stack web applications and several client websites efficiently.
+                  Comfortable using Antigravity to build and launch full-stack
+                  web applications and several client websites efficiently.
                 </p>
                 <div class="card__meta">
                   <span class="card__tag">AI Agent & Web Dev</span>
@@ -1157,7 +1218,7 @@
               class="card card--composing glint-target card-stagger"
               data-modal-title="Forgotten - Orchestral Arrangement"
               data-modal-tag="Orchestral Arrangement"
-              data-modal-date="2024"
+              data-modal-date="2026"
               data-modal-role="Solo Composer & Arranger"
               data-modal-platform="Ableton Live / DAW"
               data-modal-overview="During an exchange student program in Digital Product Development in Copenhagen, we were tasked to learn or polish a creative discipline within 5 days. I chose to push my composing and arranging limits, experimenting with unfamiliar styles, cinematic voicings, and advanced arrangement techniques in Ableton Live. In this song, I composed and arranged all instrumental lines completely from scratch."
@@ -1184,7 +1245,7 @@
                 </p>
                 <div class="card__meta">
                   <span class="card__tag">Orchestral</span>
-                  <span class="card__date">[Date: 2024]</span>
+                  <span class="card__date">[Date: 2026]</span>
                 </div>
               </div>
               <svg
@@ -1230,7 +1291,7 @@
                 </p>
                 <div class="card__meta">
                   <span class="card__tag">Short Film Score</span>
-                  <span class="card__date">[Date: 2023]</span>
+                  <span class="card__date">[Date: 2025]</span>
                 </div>
               </div>
               <svg
@@ -1322,7 +1383,7 @@
                 </p>
                 <div class="card__meta">
                   <span class="card__tag">Animation Rescore</span>
-                  <span class="card__date">[Date: 2023]</span>
+                  <span class="card__date">[Date: 2025]</span>
                 </div>
               </div>
               <svg
@@ -1452,7 +1513,11 @@
           aria-label="LinkedIn profile"
           title="LinkedIn"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.447 20.452H17.21v-5.569c0-1.327-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.12v1.561h.045c.434-.823 1.494-1.691 3.076-1.691 3.292 0 3.9 2.167 3.9 4.984v6.598zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zm1.604 13.019H3.733V9h3.208v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+            />
+          </svg>
         </a>
         <a
           href="https://github.com/Martngu"
@@ -1461,7 +1526,11 @@
           aria-label="GitHub profile"
           title="GitHub"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
         </a>
       </div>
       <p>
@@ -1535,7 +1604,9 @@
                 margin-top: var(--space-lg);
               "
             >
-              <h3 class="modal-section-title" id="modal-contributions-title">KEY CONTRIBUTIONS</h3>
+              <h3 class="modal-section-title" id="modal-contributions-title">
+                KEY CONTRIBUTIONS
+              </h3>
               <ul
                 class="modal-contributions-list"
                 id="modal-contributions"
