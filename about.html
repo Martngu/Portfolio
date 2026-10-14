@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- ================================================================
@@ -201,37 +201,6 @@
         fill: currentColor;
       }
 
-      /* Scroll Indicator */
-      .scroll-indicator {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        color: var(--color-text-muted);
-        font-size: 0.8rem;
-        animation: float 2s infinite ease-in-out;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(-50%, 0);
-        }
-        50% {
-          transform: translate(-50%, 10px);
-        }
-      }
-
-      .scroll-indicator svg {
-        width: 24px;
-        height: 24px;
-        fill: var(--color-accent);
-        opacity: 0.7;
-      }
 
       /* ---- Text column: Experience Timeline ---- */
       .about-hero__text-col {
@@ -760,15 +729,6 @@
             </a>
           </div>
 
-          <!-- Scroll Indicator -->
-          <div class="scroll-indicator">
-            Scroll
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-              />
-            </svg>
-          </div>
         </div>
         <!-- /about-profile-section -->
 
