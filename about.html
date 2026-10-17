@@ -30,6 +30,8 @@
     <link rel="canonical" href="https://mnportfolio.maevede.cc/about.html" />
 
     <title>About - Martin Nguyen</title>
+    <!-- If JavaScript runs, add .js so the fade-in styles apply (no JS = content stays visible) -->
+    <script>document.documentElement.classList.add("js");</script>
 
     <!-- Google Fonts: Inter (body) + Outfit, Plus Jakarta Sans & Space Grotesk (headings) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -393,6 +395,91 @@
         text-shadow: 0 0 8px rgba(127, 255, 0, 0.4);
       }
 
+      /* ---- Timeline fade-in (starts faint, fades up when scrolled into view) ---- */
+      html.js .timeline-item {
+        opacity: 0.12;
+        transform: translateY(18px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease,
+          background 0.5s ease,
+          box-shadow 0.5s ease;
+      }
+      html.js .timeline-item.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Section headings above each timeline fade in the same way */
+      html.js .timeline-heading {
+        opacity: 0.12;
+        transform: translateY(18px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+      }
+      html.js .timeline-heading.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ---- "Scroll down" indicator ---- */
+      .scroll-hint {
+        position: fixed;
+        bottom: 28px;
+        /* centre it in the area to the right of the sidebar */
+        left: calc(50% + var(--sidebar-width) / 2);
+        transform: translateX(-50%);
+        z-index: 50;
+        pointer-events: none; /* never blocks clicks */
+        opacity: 1;
+        transition: opacity 0.6s ease;
+      }
+      .scroll-hint__inner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+      }
+      .scroll-hint__inner svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: var(--color-accent);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      @keyframes scroll-hint-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(8px);
+        }
+      }
+      @media (max-width: 768px) {
+        .scroll-hint {
+          left: 50%; /* sidebar is hidden on mobile */
+        }
+      }
+      /* Respect people who ask their device for less motion */
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-hint__inner {
+          animation: none;
+        }
+        html.js .timeline-item,
+        html.js .timeline-heading {
+          transition: opacity 0.4s ease;
+          transform: none;
+        }
+      }
+
       /* Responsive */
       @media (max-width: 860px) {
         .about-profile-section {
@@ -410,6 +497,14 @@
   </head>
 
   <body>
+    <!-- Scroll-down hint: bounces, fades away as you scroll, returns at the top -->
+    <div class="scroll-hint" id="scroll-hint" aria-hidden="true">
+      <div class="scroll-hint__inner">
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+        <span>Scroll down</span>
+      </div>
+    </div>
+
     <!-- ================================================================
        SOCIAL SIDEBAR (same as index.html — keep in sync)
        ================================================================ -->
@@ -455,7 +550,7 @@
        ================================================================ -->
     <header>
       <nav class="navbar" aria-label="Main navigation">
-        <a class="navbar__brand" href="/Portfolio/"
+        <a class="navbar__brand" href="index.html"
           >Martin <span>Nguyen</span></a
         >
 
@@ -567,11 +662,11 @@
         </div>
 
         <ul class="navbar__links" role="list">
-          <li><a class="navbar__link" href="/Portfolio/">Home</a></li>
+          <li><a class="navbar__link" href="index.html">Home</a></li>
           <li>
             <a
               class="navbar__link active"
-              href="/Portfolio/about"
+              href="about.html"
               aria-current="page"
               >About</a
             >
@@ -594,8 +689,8 @@
           aria-label="Mobile navigation"
         >
           <ul role="list">
-            <li><a class="navbar__link" href="/Portfolio/">Home</a></li>
-            <li><a class="navbar__link" href="/Portfolio/about">About</a></li>
+            <li><a class="navbar__link" href="index.html">Home</a></li>
+            <li><a class="navbar__link" href="about.html">About</a></li>
             <li><a class="navbar__link" href="contact.html">Contact</a></li>
           </ul>
           <div class="mobile-menu-socials" aria-label="Social links">
@@ -742,8 +837,8 @@
         <!-- /about-profile-section -->
 
         <!-- WORK EXPERIENCE SECTION -->
-        <div class="about-hero__text-col fade-in-up">
-          <div>
+        <div class="about-hero__text-col">
+          <div class="timeline-heading">
             <span class="text-label">Career</span>
             <h2 class="text-h2" style="margin-top: var(--space-xs)">
               Work Experience
@@ -809,8 +904,8 @@
         <!-- /Work Experience Section -->
 
         <!-- EDUCATION SECTION -->
-        <div class="about-hero__text-col fade-in-up">
-          <div>
+        <div class="about-hero__text-col">
+          <div class="timeline-heading">
             <span class="text-label">Academic</span>
             <h2 class="text-h2" style="margin-top: var(--space-xs)">
               Education
@@ -943,13 +1038,14 @@
         </a>
       </div>
       <p>
-        <a href="/Portfolio/">Home</a>
+        <a href="index.html">Home</a>
         &nbsp;·&nbsp;
         <a href="contact.html">Contact</a>
       </p>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/nav.js"></script>
     <script src="js/effects.js"></script>
     <script>
       document.getElementById("footer-year").textContent =
@@ -977,6 +1073,53 @@
         document.querySelectorAll(".timeline-item").forEach((item) => {
           observer.observe(item);
         });
+
+        // ---- Timeline fade-in: reveal each item once when it scrolls into view ----
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-revealed");
+                revealObserver.unobserve(entry.target); // only animate once
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        document
+          .querySelectorAll(".timeline-item, .timeline-heading")
+          .forEach((el) => revealObserver.observe(el));
+
+        // ---- "Scroll down" hint ----
+        // Fades out gradually as you scroll down; fades back in only when
+        // you are back at the very top of the page.
+        const hint = document.getElementById("scroll-hint");
+        if (hint) {
+          const FADE_DISTANCE = 220; // px of scrolling until fully faded
+          let level = 1; // current opacity (0 to 1)
+
+          const updateHint = () => {
+            const y = window.scrollY || document.documentElement.scrollTop;
+            const pageIsScrollable =
+              document.documentElement.scrollHeight > window.innerHeight + 40;
+
+            if (!pageIsScrollable) {
+              hint.style.opacity = 0;
+              return;
+            }
+            if (y <= 4) {
+              level = 1; // back at the top: show again
+            } else {
+              // only ever fades OUT while scrolling (even when scrolling up a bit)
+              level = Math.min(level, Math.max(0, 1 - y / FADE_DISTANCE));
+            }
+            hint.style.opacity = level;
+          };
+
+          window.addEventListener("scroll", updateHint, { passive: true });
+          window.addEventListener("resize", updateHint);
+          updateHint();
+        }
       });
     </script>
   </body>
