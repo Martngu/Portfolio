@@ -474,10 +474,8 @@
         -->
         <form class="contact-form fade-in-up" id="contact-form" novalidate>
 
-          <!-- FormSubmit hidden fields -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <!-- Web3Forms bot protection (hidden honeypot) -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
 
           <!-- Name -->
           <div class="form-group">
