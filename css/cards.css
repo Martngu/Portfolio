@@ -838,28 +838,29 @@
    ============================================================ */
 
 /* Blur the thumbnail image on "Coming Soon" cards */
-.card__thumb--blur {
+.card--project.card--coming-soon .card__thumb--blur {
   position: relative;
+  overflow: hidden;
 }
 
-.card__thumb--blur .card__thumb-img {
-  filter: blur(8px) brightness(0.6);
-  transform: scale(1.08); /* Compensate for blur edge bleeding */
-  transition: filter 0.4s ease, transform 0.5s ease;
+.card--project.card--coming-soon .card__thumb--blur .card__thumb-img {
+  filter: blur(10px) brightness(0.55) !important;
+  transform: scale(1.15) !important;   /* Compensate for blur edge bleeding */
+  transition: filter 0.4s ease, transform 0.5s ease !important;
 }
 
-.card--coming-soon:hover .card__thumb--blur .card__thumb-img {
-  filter: blur(6px) brightness(0.7);
-  transform: scale(1.12);
+.card--project.card--coming-soon:hover .card__thumb--blur .card__thumb-img {
+  filter: blur(7px) brightness(0.65) !important;
+  transform: scale(1.18) !important;
 }
 
 /* "Coming Soon" badge centred on the blurred thumbnail */
-.card__coming-soon-badge {
+.card--project.card--coming-soon .card__coming-soon-badge {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 5;
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
@@ -872,6 +873,30 @@
   padding: 8px 24px;
   text-shadow: 0 0 12px rgba(127, 255, 0, 0.5);
   box-shadow: 0 0 20px rgba(127, 255, 0, 0.15);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+
+/* "Coming Soon" badge inside the modal media area */
+.modal-coming-soon-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(127, 255, 0, 0.4);
+  border-radius: var(--radius-pill);
+  padding: 10px 32px;
+  text-shadow: 0 0 14px rgba(127, 255, 0, 0.5);
+  box-shadow: 0 0 24px rgba(127, 255, 0, 0.2);
   pointer-events: none;
   white-space: nowrap;
 }

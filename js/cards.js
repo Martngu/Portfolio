@@ -163,6 +163,8 @@
   function openModal(card) {
     if (!modal) return;
 
+    const isComingSoon = card.classList.contains('card--coming-soon');
+
     const title        = card.dataset.modalTitle || card.querySelector('.card__title')?.textContent || 'Project Details';
     const tag          = card.dataset.modalTag || card.querySelector('.card__tag')?.textContent || '';
     const rawDate      = card.dataset.modalDate || card.querySelector('.card__date')?.textContent || '';
@@ -275,11 +277,49 @@
           mMediaImg.src = thumbSrc;
           mMediaImg.alt = title;
           mMediaImg.style.display = 'block';
+          /* Apply blur for coming-soon cards */
+          if (isComingSoon) {
+            mMediaImg.style.filter = 'blur(10px) brightness(0.55)';
+            mMediaImg.style.transform = 'scale(1.12)';
+          } else {
+            mMediaImg.style.filter = '';
+            mMediaImg.style.transform = '';
+          }
         } else {
           mMediaImg.style.display = 'none';
         }
       }
     }
+
+    /* Add/remove Coming Soon badge overlay on the modal media area */
+
+    if (mVideoWrap) {
+
+      var existingBadge = mVideoWrap.querySelector('.modal-coming-soon-badge');
+
+      if (existingBadge) existingBadge.remove();
+
+      mVideoWrap.style.overflow = 'hidden';
+
+      mVideoWrap.style.position = 'relative';
+
+
+
+      if (isComingSoon) {
+
+        var badge = document.createElement('span');
+
+        badge.className = 'modal-coming-soon-badge';
+
+        badge.textContent = 'Coming Soon';
+
+        mVideoWrap.appendChild(badge);
+
+      }
+
+    }
+
+
 
     /* Handle external link button (Itch.io, Figma, Sketchfab, MuseScore, Thales, etc.) */
     /* If extUrl is just a redundant link to YouTube when ytId is already present, suppress duplicate button */
@@ -299,6 +339,48 @@
         mExtLink.style.display = 'inline-flex';
       } else {
         mExtLink.style.display = 'none';
+      }
+    }
+
+    /* For "Coming Soon" cards, show placeholder action buttons */
+    if (isComingSoon) {
+      if (mYtLink) {
+        var ytSvg = mYtLink.querySelector('svg');
+        mYtLink.href = '#';
+        mYtLink.onclick = function(e) { e.preventDefault(); };
+        mYtLink.style.display = 'inline-flex';
+        mYtLink.style.opacity = '0.45';
+        mYtLink.style.pointerEvents = 'none';
+        mYtLink.style.cursor = 'default';
+        if (ytSvg) mYtLink.innerHTML = ytSvg.outerHTML + ' Video \u2014 Coming Soon';
+      }
+      if (mExtLink) {
+        var extSvg = mExtLink.querySelector('svg');
+        mExtLink.href = '#';
+        mExtLink.onclick = function(e) { e.preventDefault(); };
+        mExtLink.style.display = 'inline-flex';
+        mExtLink.style.opacity = '0.45';
+        mExtLink.style.pointerEvents = 'none';
+        mExtLink.style.cursor = 'default';
+        if (mExtText) {
+          mExtText.textContent = 'Download \u2014 Coming Soon';
+        } else if (extSvg) {
+          mExtLink.innerHTML = extSvg.outerHTML + ' Download \u2014 Coming Soon';
+        }
+      }
+    } else {
+      /* Reset styles for non-coming-soon cards */
+      if (mYtLink) {
+        mYtLink.style.opacity = '';
+        mYtLink.style.pointerEvents = '';
+        mYtLink.style.cursor = '';
+        mYtLink.onclick = null;
+      }
+      if (mExtLink) {
+        mExtLink.style.opacity = '';
+        mExtLink.style.pointerEvents = '';
+        mExtLink.style.cursor = '';
+        mExtLink.onclick = null;
       }
     }
 
