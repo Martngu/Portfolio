@@ -325,6 +325,29 @@
 
 
   /* ==================================================================
+     3b. SCROLL DOWN INDICATOR
+     Shows only when landed at top (not scrolled).
+     Fades away when scrolling down.
+     Reappears when scrolling back all the way to the top.
+  ================================================================== */
+
+  function initScrollIndicator() {
+    const indicators = document.querySelectorAll('.scroll-down-wrap, .scroll-indicator');
+    if (!indicators.length) return;
+
+    function onScroll() {
+      const isScrolled = window.scrollY > 25;
+      indicators.forEach(function (ind) {
+        ind.classList.toggle('is-scrolled', isScrolled);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+
+  /* ==================================================================
      4. MOBILE HAMBURGER
   ================================================================== */
 
@@ -371,13 +394,47 @@
 
 
   /* ==================================================================
+     6. NAVIGATION URL RESOLVER (Offline file:// vs Online Clean URLs)
+  ================================================================== */
+
+  function initNavigationUrls() {
+    const isFile = window.location.protocol === 'file:';
+
+    if (isFile) {
+      /* In local offline mode, resolve to actual .html files */
+      document.querySelectorAll('[data-nav]').forEach(function (el) {
+        const page = el.getAttribute('data-nav');
+        if (page === 'home') el.href = 'index.html';
+        else if (page === 'about') el.href = 'about.html';
+        else if (page === 'contact') el.href = 'contact.html';
+      });
+      return;
+    }
+
+    /* Online (http: / https:): detect if hosted in /Portfolio/ subpath */
+    const pathname = window.location.pathname;
+    const isRepo = pathname.toLowerCase().startsWith('/portfolio');
+    const base = isRepo ? '/Portfolio/' : '/';
+
+    document.querySelectorAll('[data-nav]').forEach(function (el) {
+      const page = el.getAttribute('data-nav');
+      if (page === 'home') el.href = base;
+      else if (page === 'about') el.href = base + 'about';
+      else if (page === 'contact') el.href = base + 'contact';
+    });
+  }
+
+
+  /* ==================================================================
      INIT
   ================================================================== */
 
   document.addEventListener('DOMContentLoaded', function () {
+    initNavigationUrls();
     initCanvas();
     initCursorGlow();
     initNavbarScroll();
+    initScrollIndicator();
     initMobileMenu();
     initScrollFade();
   });

@@ -155,6 +155,7 @@
         <a
           class="navbar__brand"
           href="index.html"
+          data-nav="home"
           aria-label="Martin Nguyen - Home"
         >
           Martin <span>Nguyen</span>
@@ -273,12 +274,13 @@
             <a
               class="navbar__link active"
               href="index.html"
+              data-nav="home"
               aria-current="page"
               >Home</a
             >
           </li>
-          <li><a class="navbar__link" href="about.html">About</a></li>
-          <li><a class="navbar__link" href="contact.html">Contact</a></li>
+          <li><a class="navbar__link" href="about.html" data-nav="about">About</a></li>
+          <li><a class="navbar__link" href="contact.html" data-nav="contact">Contact</a></li>
         </ul>
 
         <!-- Hamburger toggle - visible only on mobile (CSS) -->
@@ -302,9 +304,9 @@
           aria-label="Mobile navigation"
         >
           <ul role="list">
-            <li><a class="navbar__link" href="index.html">Home</a></li>
-            <li><a class="navbar__link" href="about.html">About</a></li>
-            <li><a class="navbar__link" href="contact.html">Contact</a></li>
+            <li><a class="navbar__link" href="index.html" data-nav="home">Home</a></li>
+            <li><a class="navbar__link" href="about.html" data-nav="about">About</a></li>
+            <li><a class="navbar__link" href="contact.html" data-nav="contact">Contact</a></li>
           </ul>
           <div class="mobile-menu-socials" aria-label="Social links">
             <a
@@ -450,6 +452,15 @@
           </button>
           <button
             class="tab-btn"
+            data-tab="composing"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-composing"
+          >
+            Composing
+          </button>
+          <button
+            class="tab-btn"
             data-tab="skillset"
             id="tab-skillset"
             role="tab"
@@ -457,15 +468,6 @@
             aria-controls="panel-skillset"
           >
             Skillset
-          </button>
-          <button
-            class="tab-btn"
-            data-tab="composing"
-            role="tab"
-            aria-selected="false"
-            aria-controls="panel-composing"
-          >
-            Composing
           </button>
         </nav>
 
@@ -762,10 +764,291 @@
                 </div>
               </div>
             </article>
+
+            <!-- ---- PROJECT: Eliminator 3000 (Coming Soon) ---- -->
+            <article
+              class="card card--project glint-target card-stagger card--coming-soon"
+              data-modal-title="Eliminator 3000 — Modernized Shmup"
+              data-modal-tag="Game Design · Level Design · Audio"
+              data-modal-date="2026 – 2027"
+              data-modal-role="Project Leader, Level Designer &amp; Audio Designer"
+              data-modal-platform="PC (Unity)"
+              data-modal-overview="A modernized shoot 'em up (shmup) inspired by the classic Eliminator 3000 on the Commodore 64. Leading a team of 6, we are developing a game that bridges casual accessibility with competitive skill ceilings — featuring new mechanics, dynamic encounters, and a fresh visual identity. The project also serves as the foundation for my graduation thesis."
+              data-modal-contributions="Leading a 6-person team as Project Leader, Level Designer, and Audio Designer|Designed and documented core game mechanics, then prototyped and displayed them in Figma|Facilitating team planning, sprint reviews, and stakeholder presentations|Working closely with the client throughout development while writing my graduation thesis on the project"
+              data-modal-thumb="assets/images/eliminator-shmup-preview.png"
+              data-modal-team="6"
+              data-modal-duration="6 Months (Sept – Jan)"
+              data-modal-programs="Unity, Figma"
+              data-youtube=""
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Eliminator 3000 — Coming Soon"
+            >
+              <div class="card__thumb card__thumb--blur">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/eliminator-shmup-preview.png"
+                  alt="Eliminator 3000 — preview (coming soon)"
+                  loading="lazy"
+                />
+                <span class="card__coming-soon-badge">Coming Soon</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Eliminator 3000</h3>
+                <p class="card__desc">
+                  A modernized shmup inspired by the Commodore 64 classic.
+                  Leading a team of 6 as Project Leader, Level &amp; Audio
+                  Designer — featuring new mechanics and a competitive skill
+                  ceiling for casual and hardcore players alike.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Project Leader &amp; Level Designer</span>
+                  <span class="card__date">[Date: 2026 – 2027]</span>
+                </div>
+              </div>
+            </article>
           </div>
           <!-- /card-grid -->
         </div>
         <!-- /tab-panel: projects -->
+
+        <!-- ============================================================
+           TAB PANEL: COMPOSING
+           EDIT: Add your music / sound design projects here.
+           ============================================================ -->
+        <div
+          class="tab-panel"
+          data-panel="composing"
+          id="panel-composing"
+          role="tabpanel"
+          aria-labelledby="tab-composing"
+        >
+          <div class="card-grid">
+            <!-- ---- COMPOSITION 1: Forgotten ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Forgotten - Orchestral Arrangement"
+              data-modal-tag="Orchestral Arrangement"
+              data-modal-date="2026"
+              data-modal-role="Solo Composer & Arranger"
+              data-modal-platform="Ableton Live / DAW"
+              data-modal-overview="During an exchange student program in Digital Product Development in Copenhagen, we were tasked to learn or polish a creative discipline within 5 days. I chose to push my composing and arranging limits, experimenting with unfamiliar styles, cinematic voicings, and advanced arrangement techniques in Ableton Live. In this song, I composed and arranged all instrumental lines completely from scratch."
+              data-modal-contributions="Composed and orchestrated all instrumental tracks from scratch within a 5-day sprint|Explored complex harmonic voicings, cinematic strings, and dynamic brass swells|Mixed multi-channel orchestral layers in Ableton Live for optimal acoustic headroom and punch"
+              data-modal-thumb="assets/images/forgotten-orchestral.webp"
+              data-youtube="_ZfguYHsECU"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Forgotten - Orchestral Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/forgotten-orchestral.webp"
+                  alt="Forgotten - Orchestral Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Forgotten - Orchestral Arrangement</h3>
+                <p class="card__desc">
+                  Composed and arranged from scratch in Ableton during an
+                  exchange program in Copenhagen.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Orchestral</span>
+                  <span class="card__date">[Date: 2026]</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---- COMPOSITION 2: Spring ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Spring - Scoring a short film"
+              data-modal-tag="Film Score"
+              data-modal-date="2023"
+              data-modal-role="Film Composer"
+              data-modal-platform="Digital Audio / Film Scoring"
+              data-modal-overview="For my portfolio, I scored an animated short film, focusing on evoking deep narrative emotion through music. This project was developed for the Score Relief competition, where I composed a complete original soundtrack complementing the film's visual rhythm, emotional peaks, and thematic storytelling."
+              data-modal-contributions="Scored original cues synchronized to animated narrative beats for Score Relief|Evoked nuanced character emotion and environmental tension through recurring leitmotifs|Mastered cinematic arrangement dynamics to sit cleanly beneath dialogue and sound effects"
+              data-modal-thumb="assets/images/spring-film-score.webp"
+              data-youtube="feeqDTHA2p8"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Spring - Scoring a short film - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/spring-film-score.webp"
+                  alt="Spring - Scoring a short film"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Spring - Scoring a short film</h3>
+                <p class="card__desc">
+                  Original emotional animated short film soundtrack composed for
+                  the Score Relief competition.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Short Film Score</span>
+                  <span class="card__date">[Date: 2025]</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---- COMPOSITION 3: Soft (Orchestral) ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Soft - Orchestral Arrangement"
+              data-modal-tag="Orchestral Arrangement"
+              data-modal-date="2023"
+              data-modal-role="Solo Composer & Arranger"
+              data-modal-platform="Ableton Live / Orchestral"
+              data-modal-overview="An expansive orchestral rendition of my official piece titled 'Soft'. Designed in Ableton to master professional production workflows and multi-instrument timbral blending, this piece transforms subtle melodic ideas into an emotionally resonant symphonic movement."
+              data-modal-contributions="Arranged original melodic motifs into an expansive multi-instrument symphonic score|Mastered multi-channel routing, automation curves, and expression dynamics in Ableton|Balanced woodwind, string, and brass interplay to evoke emotional depth and dynamic contrast"
+              data-modal-thumb="assets/images/soft-orchestral.webp"
+              data-youtube="ExdfjgyNw2g"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Soft - Orchestral Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/soft-orchestral.webp"
+                  alt="Soft - Orchestral Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Soft - Orchestral Arrangement</h3>
+                <p class="card__desc">
+                  Rich multi-instrument orchestral rendition of my piece 'Soft'
+                  arranged and produced in Ableton.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Orchestral</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---- COMPOSITION 4: Diamond Jack ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Diamond Jack - Arrangement"
+              data-modal-tag="Animation Rescore"
+              data-modal-date="2023"
+              data-modal-role="Rescore Composer & Audio Designer"
+              data-modal-platform="Ableton Live / Animation"
+              data-modal-overview="This orchestral piece was built completely from the ground up. The original animation audio was entirely muted, and the objective was composing, recording, and mixing a brand new orchestral score that drives every rapid cut, scene transition, and character beat in the scene."
+              data-modal-contributions="Reimagined and composed the entire animated sequence from scratch with zero reference audio|Timed dynamic tempo shifts, stingers, and brass crescendos to match high-speed visual cuts|Engineered punchy percussion layers and orchestral accents for maximum cinematic impact"
+              data-modal-thumb="assets/images/diamond-jack.webp"
+              data-youtube="Qq4QE4GnOKg"
+              data-ext-link=""
+              data-ext-label=""
+              aria-label="Diamond Jack - Arrangement - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/diamond-jack.webp"
+                  alt="Diamond Jack - Arrangement"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Diamond Jack - Arrangement</h3>
+                <p class="card__desc">
+                  Complete original orchestral rescore composed from scratch to
+                  accompany the animated film.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Animation Rescore</span>
+                  <span class="card__date">[Date: 2025]</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---- COMPOSITION 5: Old world ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Old world - MIDI"
+              data-modal-tag="MIDI Composition"
+              data-modal-date="2023"
+              data-modal-role="MIDI Arranger & Orchestrator"
+              data-modal-platform="MuseScore / Digital Notation"
+              data-modal-overview="A classical composition and creative cover based on Antonín Dvořák's Symphony No. 9 ('From the New World'). The project task was re-interpreting the iconic symphony into a personalized version while preserving its soaring themes, harmonic voice leading, and emotional soul."
+              data-modal-contributions="Transcribed and re-orchestrated thematic movements from Dvořák's Symphony No. 9|Adapted complex classical instrumentation for refined digital soundfont playback in MuseScore|Preserved traditional voice leading while introducing custom melodic counterpoints"
+              data-modal-thumb="assets/images/old-world-midi.webp"
+              data-youtube=""
+              data-ext-link="https://musescore.com/user/84059188/scores/18778003"
+              data-ext-label="View on MuseScore "
+              aria-label="Old world - MIDI - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/old-world-midi.webp"
+                  alt="Old world - MIDI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Old world - MIDI</h3>
+                <p class="card__desc">
+                  Original interpretation and arrangement based on Dvořák's
+                  Symphony No. 9 'From the New World'.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">MIDI Score</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---- COMPOSITION 6: Soft (MIDI) ---- -->
+            <article
+              class="card card--composing glint-target card-stagger"
+              data-modal-title="Soft - MIDI"
+              data-modal-tag="Original Solo Piano"
+              data-modal-date="2023"
+              data-modal-role="Solo Composer & Pianist"
+              data-modal-platform="MuseScore / Solo Piano"
+              data-modal-overview="This piece was entirely composed independently as a musical study in contrasting tonalities. I wove contrasting light and dark harmonic tones into the composition, exploring how nuanced tempo rubato, dynamic shifts, and harmonic tensions can coalesce into a deeply introspective piano piece."
+              data-modal-contributions="Composed full original solo piano sheet music exploring light and dark harmonic interplay|Notated precise dynamic contours, pedal markings, and expressive phrasing in MuseScore|Published complete sheet music and score playback on MuseScore for public study"
+              data-modal-thumb="assets/images/soft-midi.webp"
+              data-youtube=""
+              data-ext-link="https://musescore.com/user/84059188/scores/18778012"
+              data-ext-label="View on MuseScore "
+              aria-label="Soft - MIDI - click to expand"
+            >
+              <div class="card__thumb">
+                <img
+                  class="card__thumb-img"
+                  src="assets/images/soft-midi.webp"
+                  alt="Soft - MIDI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Soft - MIDI</h3>
+                <p class="card__desc">
+                  Original expressive piano composition exploring contrasting
+                  light and dark harmonic tonalities.
+                </p>
+                <div class="card__meta">
+                  <span class="card__tag">Piano Composition</span>
+                  <span class="card__date">[Date: 2023]</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- /card-grid -->
+        </div>
+        <!-- /tab-panel: composing -->
 
         <!-- ============================================================
            TAB PANEL: SKILLSET
@@ -1069,244 +1352,6 @@
           <!-- /card-grid -->
         </div>
         <!-- /tab-panel: skillset -->
-
-        <!-- ============================================================
-           TAB PANEL: COMPOSING
-           EDIT: Add your music / sound design projects here.
-           ============================================================ -->
-        <div
-          class="tab-panel"
-          data-panel="composing"
-          id="panel-composing"
-          role="tabpanel"
-          aria-labelledby="tab-composing"
-        >
-          <div class="card-grid">
-            <!-- ---- COMPOSITION 1: Forgotten ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Forgotten - Orchestral Arrangement"
-              data-modal-tag="Orchestral Arrangement"
-              data-modal-date="2026"
-              data-modal-role="Solo Composer & Arranger"
-              data-modal-platform="Ableton Live / DAW"
-              data-modal-overview="During an exchange student program in Digital Product Development in Copenhagen, we were tasked to learn or polish a creative discipline within 5 days. I chose to push my composing and arranging limits, experimenting with unfamiliar styles, cinematic voicings, and advanced arrangement techniques in Ableton Live. In this song, I composed and arranged all instrumental lines completely from scratch."
-              data-modal-contributions="Composed and orchestrated all instrumental tracks from scratch within a 5-day sprint|Explored complex harmonic voicings, cinematic strings, and dynamic brass swells|Mixed multi-channel orchestral layers in Ableton Live for optimal acoustic headroom and punch"
-              data-modal-thumb="assets/images/forgotten-orchestral.webp"
-              data-youtube="_ZfguYHsECU"
-              data-ext-link=""
-              data-ext-label=""
-              aria-label="Forgotten - Orchestral Arrangement - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/forgotten-orchestral.webp"
-                  alt="Forgotten - Orchestral Arrangement"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Forgotten - Orchestral Arrangement</h3>
-                <p class="card__desc">
-                  Composed and arranged from scratch in Ableton during an
-                  exchange program in Copenhagen.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Orchestral</span>
-                  <span class="card__date">[Date: 2026]</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ---- COMPOSITION 2: Spring ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Spring - Scoring a short film"
-              data-modal-tag="Film Score"
-              data-modal-date="2023"
-              data-modal-role="Film Composer"
-              data-modal-platform="Digital Audio / Film Scoring"
-              data-modal-overview="For my portfolio, I scored an animated short film, focusing on evoking deep narrative emotion through music. This project was developed for the Score Relief competition, where I composed a complete original soundtrack complementing the film's visual rhythm, emotional peaks, and thematic storytelling."
-              data-modal-contributions="Scored original cues synchronized to animated narrative beats for Score Relief|Evoked nuanced character emotion and environmental tension through recurring leitmotifs|Mastered cinematic arrangement dynamics to sit cleanly beneath dialogue and sound effects"
-              data-modal-thumb="assets/images/spring-film-score.webp"
-              data-youtube="feeqDTHA2p8"
-              data-ext-link=""
-              data-ext-label=""
-              aria-label="Spring - Scoring a short film - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/spring-film-score.webp"
-                  alt="Spring - Scoring a short film"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Spring - Scoring a short film</h3>
-                <p class="card__desc">
-                  Original emotional animated short film soundtrack composed for
-                  the Score Relief competition.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Short Film Score</span>
-                  <span class="card__date">[Date: 2025]</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ---- COMPOSITION 3: Soft (Orchestral) ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Soft - Orchestral Arrangement"
-              data-modal-tag="Orchestral Arrangement"
-              data-modal-date="2023"
-              data-modal-role="Solo Composer & Arranger"
-              data-modal-platform="Ableton Live / Orchestral"
-              data-modal-overview="An expansive orchestral rendition of my official piece titled 'Soft'. Designed in Ableton to master professional production workflows and multi-instrument timbral blending, this piece transforms subtle melodic ideas into an emotionally resonant symphonic movement."
-              data-modal-contributions="Arranged original melodic motifs into an expansive multi-instrument symphonic score|Mastered multi-channel routing, automation curves, and expression dynamics in Ableton|Balanced woodwind, string, and brass interplay to evoke emotional depth and dynamic contrast"
-              data-modal-thumb="assets/images/soft-orchestral.webp"
-              data-youtube="ExdfjgyNw2g"
-              data-ext-link=""
-              data-ext-label=""
-              aria-label="Soft - Orchestral Arrangement - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/soft-orchestral.webp"
-                  alt="Soft - Orchestral Arrangement"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Soft - Orchestral Arrangement</h3>
-                <p class="card__desc">
-                  Rich multi-instrument orchestral rendition of my piece 'Soft'
-                  arranged and produced in Ableton.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Orchestral</span>
-                  <span class="card__date">[Date: 2023]</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ---- COMPOSITION 4: Diamond Jack ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Diamond Jack - Arrangement"
-              data-modal-tag="Animation Rescore"
-              data-modal-date="2023"
-              data-modal-role="Rescore Composer & Audio Designer"
-              data-modal-platform="Ableton Live / Animation"
-              data-modal-overview="This orchestral piece was built completely from the ground up. The original animation audio was entirely muted, and the objective was composing, recording, and mixing a brand new orchestral score that drives every rapid cut, scene transition, and character beat in the scene."
-              data-modal-contributions="Reimagined and composed the entire animated sequence from scratch with zero reference audio|Timed dynamic tempo shifts, stingers, and brass crescendos to match high-speed visual cuts|Engineered punchy percussion layers and orchestral accents for maximum cinematic impact"
-              data-modal-thumb="assets/images/diamond-jack.webp"
-              data-youtube="Qq4QE4GnOKg"
-              data-ext-link=""
-              data-ext-label=""
-              aria-label="Diamond Jack - Arrangement - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/diamond-jack.webp"
-                  alt="Diamond Jack - Arrangement"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Diamond Jack - Arrangement</h3>
-                <p class="card__desc">
-                  Complete original orchestral rescore composed from scratch to
-                  accompany the animated film.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Animation Rescore</span>
-                  <span class="card__date">[Date: 2025]</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ---- COMPOSITION 5: Old world ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Old world - MIDI"
-              data-modal-tag="MIDI Composition"
-              data-modal-date="2023"
-              data-modal-role="MIDI Arranger & Orchestrator"
-              data-modal-platform="MuseScore / Digital Notation"
-              data-modal-overview="A classical composition and creative cover based on Antonín Dvořák's Symphony No. 9 ('From the New World'). The project task was re-interpreting the iconic symphony into a personalized version while preserving its soaring themes, harmonic voice leading, and emotional soul."
-              data-modal-contributions="Transcribed and re-orchestrated thematic movements from Dvořák's Symphony No. 9|Adapted complex classical instrumentation for refined digital soundfont playback in MuseScore|Preserved traditional voice leading while introducing custom melodic counterpoints"
-              data-modal-thumb="assets/images/old-world-midi.webp"
-              data-youtube=""
-              data-ext-link="https://musescore.com/user/84059188/scores/18778003"
-              data-ext-label="View on MuseScore "
-              aria-label="Old world - MIDI - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/old-world-midi.webp"
-                  alt="Old world - MIDI"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Old world - MIDI</h3>
-                <p class="card__desc">
-                  Original interpretation and arrangement based on Dvořák's
-                  Symphony No. 9 'From the New World'.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">MIDI Score</span>
-                  <span class="card__date">[Date: 2023]</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- ---- COMPOSITION 6: Soft (MIDI) ---- -->
-            <article
-              class="card card--composing glint-target card-stagger"
-              data-modal-title="Soft - MIDI"
-              data-modal-tag="Original Solo Piano"
-              data-modal-date="2023"
-              data-modal-role="Solo Composer & Pianist"
-              data-modal-platform="MuseScore / Solo Piano"
-              data-modal-overview="This piece was entirely composed independently as a musical study in contrasting tonalities. I wove contrasting light and dark harmonic tones into the composition, exploring how nuanced tempo rubato, dynamic shifts, and harmonic tensions can coalesce into a deeply introspective piano piece."
-              data-modal-contributions="Composed full original solo piano sheet music exploring light and dark harmonic interplay|Notated precise dynamic contours, pedal markings, and expressive phrasing in MuseScore|Published complete sheet music and score playback on MuseScore for public study"
-              data-modal-thumb="assets/images/soft-midi.webp"
-              data-youtube=""
-              data-ext-link="https://musescore.com/user/84059188/scores/18778012"
-              data-ext-label="View on MuseScore "
-              aria-label="Soft - MIDI - click to expand"
-            >
-              <div class="card__thumb">
-                <img
-                  class="card__thumb-img"
-                  src="assets/images/soft-midi.webp"
-                  alt="Soft - MIDI"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card__body">
-                <h3 class="card__title">Soft - MIDI</h3>
-                <p class="card__desc">
-                  Original expressive piano composition exploring contrasting
-                  light and dark harmonic tonalities.
-                </p>
-                <div class="card__meta">
-                  <span class="card__tag">Piano Composition</span>
-                  <span class="card__date">[Date: 2023]</span>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!-- /card-grid -->
-        </div>
-        <!-- /tab-panel: composing -->
       </section>
       <!-- /composition-section -->
     </main>
@@ -1349,9 +1394,9 @@
         </a>
       </div>
       <p>
-        <a href="about.html">About</a>
+        <a href="about.html" data-nav="about">About</a>
         &nbsp;&middot;&nbsp;
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
       </p>
     </footer>
 
@@ -1515,7 +1560,6 @@
     <!-- ================================================================
        SCRIPTS - load order: effects then cards
        ================================================================ -->
-    <script src="js/nav.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/cards.js"></script>
     <script>

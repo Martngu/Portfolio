@@ -163,9 +163,7 @@
         return;
       }
 
-      /* ---- Simulate sending ---- */
-      /* In production: replace this block with your real fetch() call  */
-      /* e.g. fetch('/api/contact', { method: 'POST', body: ... })      */
+      /* ---- Send the message ---- */
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
@@ -173,29 +171,47 @@
       /* ------------------------------------------------------------
          LIVE EMAIL SUBMISSION via FormSubmit
          Sends submissions directly to maeve.create@gmail.com
+
+         IMPORTANT: FormSubmit requires a one-time email verification.
+         The very first submission triggers a confirmation email to the
+         target address. Click the link in that email to activate the
+         endpoint. All subsequent submissions will work normally.
       ------------------------------------------------------------ */
       const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/maeve.create@gmail.com';
 
+      /* Build JSON body — more reliable with FormSubmit's AJAX endpoint */
+      var formData = {
+        name:    document.getElementById('field-name').value.trim(),
+        email:   document.getElementById('field-email').value.trim(),
+        subject: document.getElementById('field-subject').value.trim(),
+        message: document.getElementById('field-message').value.trim(),
+        _captcha: 'false',
+        _template: 'table'
+      };
+
       fetch(EMAIL_ENDPOINT, {
         method: 'POST',
-        body: new FormData(form),
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
-        }
+        },
+        body: JSON.stringify(formData)
       })
       .then(function (response) {
         if (response.ok) {
-          /* Hide form & show success message */
-          form.style.opacity = '0';
-          form.style.transform = 'translateY(-12px)';
-          form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          return response.json().then(function () {
+            /* Hide form & show success message */
+            form.style.opacity = '0';
+            form.style.transform = 'translateY(-12px)';
+            form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
-          setTimeout(function () {
-            form.style.display = 'none';
-            if (successEl) {
-              successEl.classList.add('visible');
-            }
-          }, 400);
+            setTimeout(function () {
+              form.style.display = 'none';
+              if (successEl) {
+                successEl.classList.add('visible');
+              }
+            }, 400);
+          });
         } else {
           return response.json().then(function (data) {
             throw new Error(data.message || 'Submission failed');
@@ -205,7 +221,14 @@
       .catch(function (error) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
-        alert('There was a problem sending your message. Please email directly to maeve.create@gmail.com or try again.');
+
+        /* If this is the first ever submission, FormSubmit sends a
+           verification email. Let the user know. */
+        if (error.message && error.message.indexOf('verified') !== -1) {
+          alert('FormSubmit needs to verify your email first. A confirmation link has been sent to maeve.create@gmail.com — please check your inbox (and spam folder), click the link, then try submitting again.');
+        } else {
+          alert('There was a problem sending your message. This may happen if the FormSubmit endpoint hasn\'t been verified yet.\n\nPlease email directly to maeve.create@gmail.com or try again in a moment.');
+        }
       });
     });
 

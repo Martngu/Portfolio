@@ -93,6 +93,9 @@ html {
   scroll-behavior: smooth;
   /* Prevents horizontal overflow on mobile */
   overflow-x: hidden;
+  /* Keep vertical scrollbar container present and stable on all pages to prevent layout shift */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -108,6 +111,9 @@ body {
   min-height: 100vh;
   /* The canvas lives behind everything via z-index */
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Prevent default list styling everywhere */
@@ -254,15 +260,23 @@ input, textarea, select {
   left: var(--sidebar-width);
   right: 0;
   height: var(--nav-height);
+  min-height: var(--nav-height);
+  max-height: var(--nav-height);
+  box-sizing: border-box;
   z-index: 100;
   display: flex;
   align-items: center;
   padding-inline: var(--space-lg);
   /* Start fully transparent */
   background: transparent;
+  /* Reserve the border in the resting state too, so toggling .scrolled
+     never shrinks the content box and nudges the brand/links by 0.5px */
+  border-bottom: 1px solid transparent;
   transition: background var(--transition-normal),
               backdrop-filter var(--transition-normal),
               border-bottom var(--transition-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* State added by JS when user scrolls down */
@@ -276,10 +290,13 @@ input, textarea, select {
 /* Brand / logo — left side */
 .navbar__brand {
   font-family: var(--font-name, var(--font-heading));
-  font-size: 1.05rem;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-text);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   /* Push nav links to the far right */
   margin-right: auto;
   transition: color var(--transition-fast);
@@ -297,14 +314,17 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
 }
 
 .navbar__link {
   position: relative;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-muted);
   letter-spacing: 0.04em;
+  line-height: 1.5;
   padding-block: var(--space-xs);
   transition: color var(--transition-fast);
 }
@@ -679,6 +699,100 @@ input, textarea, select {
   }
 }
 
+/* ---- Scroll Down Indicator (Landing Hero) ---- */
+.scroll-down-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  z-index: 10;
+}
+
+/* Fades away when scrolled down, reappears at the very top */
+.scroll-down-wrap.is-scrolled {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  pointer-events: none;
+}
+
+.scroll-down-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  user-select: none;
+  animation: scrollHover 2.4s ease-in-out infinite;
+  transition: color var(--transition-fast);
+}
+
+.scroll-down-text {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.scroll-down-arrow-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 255, 0, 0.25);
+  background: rgba(127, 255, 0, 0.04);
+  transition: border-color var(--transition-fast),
+              background var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.scroll-down-double-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-accent);
+  transition: transform var(--transition-fast);
+}
+
+/* Hover effects */
+.scroll-down-btn:hover .scroll-down-text {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(127, 255, 0, 0.4);
+}
+
+.scroll-down-btn:hover .scroll-down-arrow-box {
+  border-color: var(--color-accent);
+  background: rgba(127, 255, 0, 0.12);
+  box-shadow: 0 0 18px rgba(127, 255, 0, 0.35);
+  transform: scale(1.08);
+}
+
+.scroll-down-btn:hover .scroll-down-double-arrow {
+  transform: translateY(2px);
+}
+
+/* Hovering / floating animation */
+@keyframes scrollHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
 
 /* ============================================================
    9. FOOTER
@@ -811,4 +925,62 @@ input, textarea, select {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ============================================================
+   11. SITE CHROME LOCK  (navbar + social sidebar)
+       Single source of truth for chrome geometry. Every page loads
+       this file, so size/position cannot differ between pages.
+       !important is deliberate: it stops any per-page <style> or
+       script-set inline style from changing chrome geometry.
+       Colours / hover / .scrolled paint are NOT locked.
+   ============================================================ */
+@media (min-width: 769px) {
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: var(--sidebar-width) !important;
+    right: 0 !important;
+    height: var(--nav-height) !important;
+    min-height: var(--nav-height) !important;
+    max-height: var(--nav-height) !important;
+    padding-block: 0 !important;
+    padding-inline: var(--space-lg) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+  .social-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: var(--sidebar-width) !important;
+    min-width: var(--sidebar-width) !important;
+    max-width: var(--sidebar-width) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  body { padding-left: var(--sidebar-width) !important; }
+}
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: var(--nav-height) !important;
+    min-height: var(--nav-height) !important;
+    max-height: var(--nav-height) !important;
+    padding-block: 0 !important;
+    padding-inline: var(--space-lg) !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Same viewport width on every page, with or without a scrollbar */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }

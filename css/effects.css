@@ -169,12 +169,14 @@
       once it enters the viewport. JS adds .in-view.
    ============================================================ */
 
+/* Elements start partially visible so fast-scrollers immediately
+   recognise there is content below — opacity 0.25 instead of 0. */
 .fade-in-up {
-  opacity: 0;
-  transform: translateY(32px);
+  opacity: 0.25;
+  transform: translateY(18px);
   transition:
-    opacity   0.6s ease,
-    transform 0.6s ease;
+    opacity   0.55s ease,
+    transform 0.55s ease;
 }
 
 .fade-in-up.in-view {
