@@ -131,6 +131,8 @@
   let mDuration      = null;
   let mPrograms      = null;
   let mContribTitle  = null;
+  let _origYtHTML    = '';
+  let _origExtHTML   = '';
 
   function cacheModalRefs() {
     modal          = document.getElementById('card-modal');
@@ -154,6 +156,9 @@
     mClose         = document.getElementById('modal-close');
     mDuration      = document.getElementById('modal-duration');
     mPrograms      = document.getElementById('modal-programs');
+    /* Save original button HTML so we can restore after Coming Soon */
+    if (mYtLink)  _origYtHTML  = mYtLink.innerHTML;
+    if (mExtLink) _origExtHTML = mExtLink.innerHTML;
   }
 
   /**
@@ -369,18 +374,20 @@
         }
       }
     } else {
-      /* Reset styles for non-coming-soon cards */
+      /* Reset styles AND restore original button content for non-coming-soon cards */
       if (mYtLink) {
         mYtLink.style.opacity = '';
         mYtLink.style.pointerEvents = '';
         mYtLink.style.cursor = '';
         mYtLink.onclick = null;
+        mYtLink.innerHTML = _origYtHTML;
       }
       if (mExtLink) {
         mExtLink.style.opacity = '';
         mExtLink.style.pointerEvents = '';
         mExtLink.style.cursor = '';
         mExtLink.onclick = null;
+        mExtLink.innerHTML = _origExtHTML;
       }
     }
 
