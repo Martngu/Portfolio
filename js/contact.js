@@ -180,28 +180,26 @@
       ------------------------------------------------------------ */
       var WEB3FORMS_KEY = '5613b6e4-f386-46c2-8b79-625d96c43eb1';
 
-      var formData = {
-        access_key: WEB3FORMS_KEY,
-        name:    document.getElementById('field-name').value.trim(),
-        email:   document.getElementById('field-email').value.trim(),
-        subject: document.getElementById('field-subject').value.trim(),
-        message: document.getElementById('field-message').value.trim(),
-        from_name: 'Portfolio Contact Form',
-        botcheck: ''
-      };
+      var formBody = new FormData();
+      formBody.append('access_key', WEB3FORMS_KEY);
+      formBody.append('name',    document.getElementById('field-name').value.trim());
+      formBody.append('email',   document.getElementById('field-email').value.trim());
+      formBody.append('subject', document.getElementById('field-subject').value.trim());
+      formBody.append('message', document.getElementById('field-message').value.trim());
+      formBody.append('from_name', 'Portfolio Contact Form');
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: formBody
       })
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
+        console.log('Web3Forms response:', data);
         if (data.success) {
           /* Hide form & show success message */
           form.style.opacity = '0';
@@ -219,9 +217,10 @@
         }
       })
       .catch(function (error) {
+        console.error('Web3Forms error:', error);
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
-        alert('There was a problem sending your message.\n\nPlease email directly to maeve.create@gmail.com or try again in a moment.');
+        alert('There was a problem sending your message.\n\nError: ' + (error.message || 'Unknown error') + '\n\nPlease email directly to maeve.create@gmail.com or try again in a moment.');
       });
     });
 
